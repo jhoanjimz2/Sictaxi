@@ -1,0 +1,25 @@
+
+<div class="card-formulario sombra">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="ptlr">Usuario</th>
+                <th class="ptrr">Fecha de Registro</th>
+            </tr>
+        </thead>
+        <tbody class="bw">
+          <tr *ngFor="let refrendacion of refrendaciones">
+            <td>{{refrendacion.usuario}}</td>
+            <td>{{refrendacion.fechaRegistro}}</td>
+          </tr>
+        </tbody>
+    </table>
+    <div class="row mt-20">
+        <div class="col-6"></div>
+        <div class="col-6 end">
+            <button class="sombra bg-r" type="button" (click)="_refrendar()"><img [src]="'assets/moneda.png'">Refrendar</button>
+            <div class="separador"></div>
+            <button class="sombra bg-r" [routerLink]="'/empresa/buscar-conductores'">Cancelar</button>
+        </div>
+    </div>
+</div>

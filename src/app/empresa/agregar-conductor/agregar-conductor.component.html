@@ -1,0 +1,31 @@
+<div class="contenedor">
+    <div class="row mt-10">
+        <div class="col">
+            <label class="titulo">Agregar conductor</label>
+        </div>
+    </div>
+    <div class="row mt-10">
+        <div class="col">
+            <button class="opcion-button" [ngClass]="{'seleccionado': step != 1}" (click)="seleccion(1)">
+                <img src="assets/sidebar/agregarconductor.svg">Conductor
+            </button>
+            <button class="opcion-button" [ngClass]="{'seleccionado': step != 2}" (click)="seleccion(2)">
+                <img src="assets/sidebar/user.svg">Inf. complementaria
+            </button>
+            <button class="opcion-button" [ngClass]="{'seleccionado': step != 3}" (click)="seleccion(3)">
+                <img src="assets/taxi.svg">Vehículo
+            </button>
+            <button class="opcion-button" [ngClass]="{'seleccionado': step != 4}" (click)="step = 4" *ngIf="id">
+                <img src="assets/moneda.png">Refrendaciones
+            </button>
+        </div>
+    </div>
+    <div class="row mt-20">
+        <div class="col">
+            <app-conductor           (refrendar)="refrendar()" [hidden]="step != 1" class="animado animate__animated animate__fadeInRight"/>
+            <app-info-complementaria (refrendar)="refrendar()" [hidden]="step != 2" class="animado animate__animated animate__fadeInRight"/>
+            <app-vehiculo            (refrendar)="refrendar()" [hidden]="step != 3" class="animado animate__animated animate__fadeInRight"/>
+            <app-refrendaciones      (refrendar)="refrendar()" [hidden]="step != 4" class="animado animate__animated animate__fadeInRight"/>
+        </div>
+    </div>
+</div>

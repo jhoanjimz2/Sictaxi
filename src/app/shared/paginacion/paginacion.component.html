@@ -1,0 +1,15 @@
+<div class="div-pagination">
+
+    <button (click)="anterior()">
+        <i class="bi bi-chevron-compact-left"></i>Anterior
+    </button>
+
+    <button [ngClass]="{'opacity-0': focus == 1}" (click)="anterior()">{{focus - 1}}</button>
+    <button class="focus">{{focus}}</button>
+    <button [ngClass]="{'opacity-0': focus == cantidad}" (click)="siguiente()">{{focus + 1}}</button>
+
+    <button (click)="siguiente()">
+        Siguiente<i class="bi bi-chevron-compact-right"></i>
+    </button>
+
+</div>

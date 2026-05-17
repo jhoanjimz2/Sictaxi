@@ -1,0 +1,71 @@
+<div class="contenedor">
+    <div class="row mt-20">
+        <app-barra-busqueda [placeholder]="'Buscar por placa o cédula'" (searchEvent)="buscar($event)"/>
+    </div>
+    <div class="row mt-10">
+        <div class="col-6">
+            <label class="titulo">Conductores</label>
+        </div>
+        <div class="col-6 flex-end">
+            <app-export-excel (export)="exportar()" />
+        </div>
+    </div>
+    <div class="row pb-80">
+        <div class="col-12" *ngFor="let conductor of conductores">
+            <div class="card-taxista">
+                <div class="img">
+                    <img [src]="urlImg + conductor.fotoURL | imagenes | async" (click)="datosConductor(conductor.id)">
+                </div>
+                <div class="textos">
+                    <div class="linea-uno">{{conductor.nombres}}</div>
+                    <div class="linea-dos">
+                        <div class="textos-container w1">
+                            <label>Cédula: <span>{{conductor.cedula}}</span></label><br>
+                            <label>Licencia: <span>{{conductor.licenciaConduccion}} - vence el {{conductor.fechaLicenciaConduccion | date: 'dd/MM/YYYY'}}</span></label><br>
+                            <label>Tarjeta de operación: <span>{{conductor.ultima_vinculacion.vehiculo.tarjetaOperacion}}</span></label><br>
+                            <label>Dirección: <span>{{conductor.direccion}}</span></label><br>
+                            <label>Teléfono: <span>{{conductor.telefono}}</span></label><br>
+                            <label>Categoría pase: <span>{{conductor.categoriaPase}}</span></label><br>
+                            <label>Tipo de sangre: <span>{{conductor.tipoSangre}}</span></label><br>
+                            <label>EPS: <span>{{conductor.idEps | nombreEntidad: estadisticasService._AFPARLEPS.value}}</span></label><br>
+                            <label>ARL: <span>{{conductor.idArl | nombreEntidad: estadisticasService._AFPARLEPS.value}}</span></label><br>
+                            <label>AFP: <span>{{conductor.idAfp | nombreEntidad: estadisticasService._AFPARLEPS.value}}</span></label>
+                        </div>
+                        <div class="separador"></div>
+                        <div class="textos-container w2">
+                            <label>Fecha de nacimiento: <span>{{conductor.fechaNacimiento | date: 'dd/MM/YYYY'}}</span></label><br>
+                            <label>Fecha de tarjeta: <span>{{conductor.ultima_vinculacion.vehiculo.fechaTarjetaOperacionF | date: 'dd/MM/YYYY'}}</span></label><br>
+                            <label>Número RCC: <span>{{conductor.ultima_vinculacion.vehiculo.numeroRCC}}</span></label><br>
+                            <label>Número RCE: <span>{{conductor.ultima_vinculacion.vehiculo.numeroRCE}}</span></label><br>
+                            <label>SOAT: <span>{{conductor.ultima_vinculacion.vehiculo.numeroSOAT}}</span></label><br>
+                            <label>Número de tecnicomecánica: <span>{{conductor.ultima_vinculacion.vehiculo.numeroTecnoMecanica}}</span></label><br>
+                            <label>Propietario: <span>{{conductor.ultima_vinculacion.vehiculo.nombrePropietario}}</span></label><br>
+                            <label>Cédula del propietario: <span>{{conductor.ultima_vinculacion.vehiculo.cedulaPropietario}}</span></label><br>
+                            <label>Télefono del propietario: <span>{{conductor.ultima_vinculacion.vehiculo.telefonoPropietario}}</span></label><br>
+                            <label>Dirección del propietario: <span>{{conductor.ultima_vinculacion.vehiculo.direccionPropietario}}</span></label>
+                        </div>
+                        <div class="separador"></div>
+                        <div class="textos-container">
+                            <img [src]="'assets/taxi.svg'">
+                        </div>
+                        <div class="separador"></div>
+                        <div class="textos-container w3">
+                            <label>HYUNDAI Modelo: <span>{{conductor.ultima_vinculacion.vehiculo.modelo}}</span></label><br>
+                            <label>Placa: <span>{{conductor.ultima_vinculacion.vehiculo.placa}}</span></label><br>
+                            <label>Número de motor: <span>{{conductor.ultima_vinculacion.vehiculo.numeroMotor}}</span></label><br>
+                            <label>Número de chasis: <span>{{conductor.ultima_vinculacion.vehiculo.numeroChasis}}</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-paginacion ">
+        <app-paginacion
+            *ngIf="totalPages"
+            [cantidad]="totalPages"
+            [focus]="paginaActual"
+            (paginar)="pagina($event)">
+        </app-paginacion>
+    </div>
+</div>

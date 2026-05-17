@@ -1,0 +1,66 @@
+<div class="contenedor">
+    <div class="row mt-20">
+        <app-barra-busqueda [placeholder]="'Buscar por placa o cedula'" (searchEvent)="buscar($event)"/>
+    </div>
+    <div class="row mt-10">
+        <div class="col-6 flex-end">
+            <app-select-neg (select)="selectComent($event)"/>
+        </div>
+        <div class="col-6 flex-start">
+            <app-datetime
+                (select)="selectDate($event)"
+            />
+        </div>
+    </div>
+    <div class="row mt-10">
+        <div class="col-6">
+            <label class="titulo">Conductores con quejas</label>
+        </div>
+        <div class="col-6 flex-end">
+            <app-export-excel (export)="exportar()"/>
+        </div>
+    </div>
+    <div class="row pb-80">
+        <div class="col">
+            <div class="card-taxista sombra" *ngFor="let conductor of conductoresConQuejas">
+                <div class="primero">
+                    <img [src]="conductor.img | imagenes | async" (click)="datosConductor(conductor.idConductor)">
+                </div>
+                <div class="segundo">
+                    <div class="l-h">
+                        <label class="negrita">{{conductor.name}} {{conductor.surname}} - <span>Cédula/Licencia: {{conductor.cedula}}</span></label><br>
+                        <label class="negrita"><span>Quejas: </span>{{conductor.cantidad}}</label><br>
+                        <label class="negrita"><span>Quejas tramitadas: </span>{{conductor.cantidadTramitada}}</label>
+                    </div>
+                </div>
+                <div class="tercero">
+                    <div>
+                        <button class="button" (click)="quejasTramitadas(conductor.ultima_vinculacion.id)"><img [src]="'assets/tramitar.svg'"><label>Tramitar</label></button>
+                        <div class="h-10"></div>
+                        <button *ngIf="conductor.estado == 'Activa'" class="button" (click)="bloquear(conductor)"><img [src]="'assets/bloquear.svg'"><label>Bloquear</label></button>
+                        <button *ngIf="conductor.estado == 'Bloqueada'" class="button" (click)="desbloquear(conductor)"><img [src]="'assets/bloquear.svg'"><label>Desbloquear</label></button>
+                    </div>
+                </div>
+                <div class="cuarto">
+                    <img [src]="'assets/taxi.svg'">
+                </div>
+                <div class="quinto">
+                    <div class="l-h">
+                        <label class="negrita">{{conductor.marca}} Modelo: <span>{{conductor.modelo}}</span></label><br>
+                        <label class="negrita">Placa: <span>{{conductor.placa}}</span></label><br>
+                        <label class="negrita">Número de motor: <span>{{conductor.numeroMotor}}</span></label><br>
+                        <label class="negrita">Número de chasis: <span>{{conductor.numeroChasis}}</span></label><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-paginacion ">
+        <app-paginacion
+            *ngIf="totalPages"
+            [cantidad]="totalPages"
+            [focus]="paginaActual"
+            (paginar)="pagina($event)">
+        </app-paginacion>
+    </div>
+</div>

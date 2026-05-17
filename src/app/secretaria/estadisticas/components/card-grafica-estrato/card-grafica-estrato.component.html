@@ -1,0 +1,15 @@
+<div class="card-grafica-dos">
+    <label class="title">Estrato socioeconómico de los taxistas</label>
+    <div class="content-grafica">
+        <div class="w-50 centrar">
+            <div class="lista">
+                <div *ngFor="let item of data" class="item-lista">
+                    <div class="punto" [ngStyle]="{'background-color': item.color}"></div>{{item.name}}
+                </div>
+            </div>
+        </div>
+        <div class="w-50 grafic">
+            <canvas  id="ChartEstrato">{{ chart }}</canvas>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="contenedor">
+  <div class="row">
+    <app-barra-busqueda [placeholder]="'Buscar por placa o cédula'" (searchEvent)="buscar($event)"/>
+  </div>
+  <div class="separador-cards"></div>
+  <div class="row">
+    <div class="col toolbar-filtros">
+      <label class="titulo">Historial Desvinculaciones</label>
+
+      <!-- <app-datetime (select)="selectDate($event)"/> -->
+      <app-export-excel (export)="exportar()"/>
+    </div>
+  </div>
+  <div class="separador-cards"></div>
+  <div class="separador-cards"></div>
+
+
+
+
+  <app-card-desvinculcion [desvinculaciones]="desvinculaciones"></app-card-desvinculcion>
+
+
+  <div class="footer-paginacion">
+    <app-paginacion
+    *ngIf="totalPages"
+    [cantidad]="totalPages"
+    [focus]="paginaActual"
+    (paginar)="pagina($event)">
+    </app-paginacion>
+  </div>
+
+</div>
+
+

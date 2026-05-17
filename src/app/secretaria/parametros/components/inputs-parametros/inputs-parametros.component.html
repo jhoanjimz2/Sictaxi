@@ -1,0 +1,39 @@
+
+<form (ngSubmit)="guardar()" [formGroup]="formulario" autocomplete="off">
+    <div class="row mt-20">
+        <div class="col">
+            <div class="card-parametros sombra">
+                <div class="row mt-20">
+                    <div class="col-4">
+                        <label class="subtitulo">Máximo número de usuarios para empresas</label>
+                        <input type="text" class="input" formControlName="maximoNumero">
+                    </div>
+                    <div class="col-4">
+                        <label class="subtitulo">Mensaje de bloqueo de inicio de sesión</label>
+                        <input type="text" class="input" formControlName="mensajedeBloqueo">
+                    </div>
+                    <div class="col-4">
+                        <label class="subtitulo">Bloquear inicio de sesión a las empresas</label>
+                        <select type="text" class="input" formControlName="bloquearInicio">
+                            <option [value]="'1'">Si</option>
+                            <option [value]="'2'">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-20">
+                    <div class="col-4">
+                        <label class="subtitulo">Vehículos por CONDUCTOR</label>
+                        <input type="number" class="input" formControlName="conductoresXVehiculo">
+                    </div>
+                </div>
+                <div class="row mt-40">
+                    <div class="content-buttons">
+                        <button class="sombra bg-b" [disabled]="!formulario.valid"><img [src]="'assets/guardar.svg'">Guardar todo</button>
+                        <div class="separador"></div>
+                        <button class="sombra bg-r" [routerLink]="'/secretaria/buscar-conductores'">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,70 @@
+export interface FormAddConductor1 {
+    idAfp:                   string;
+    idArl:                   string;
+    idEps:                   string;
+    apellidos:               string;
+    barrio:                  string;
+    categoriaPase:           string;
+    cedula:                  string;
+    direccion:               string;
+    email:                   string;
+    estadoCivil:             string;
+    fechaLicenciaConduccion: string;
+    fechaNacimiento:         string;
+    foto:                    File;
+    jornada:                 string;
+    nombres:                 string;
+    rh:                      string;
+    sexo:                    string;
+    telefono:                string;
+    tipoSangre:              string;
+}
+export interface FormAddConductor2 {
+    agua:                    string;
+    alcantarillado:          string;
+    conductorLaborUnidad:    string;
+    estratoSocioEconomico:   string;
+    estudia:                 string;
+    gas:                     string;
+    ingresosAproxConductor:  string;
+    ingresosOtraLabor:       string;
+    luz:                     string;
+    nivelEducativoAlcanzado: string;
+    numeroHijos:             string;
+    otraLabor:               string;
+    otraLaborUnidad:         string;
+    parentescoJefeHogar:     string;
+    personasCargo:           string;
+    recoleccionBasura:       string;
+    taxistaOcacional:        string;
+    tiempoComoConductor:     string;
+    tiempoOtraLabor:         string;
+    tipoDiscapacidad:        string;
+    tipoVivienda:            string;
+}
+export interface FormAddConductor3 {
+    cedulaPropietario:        string;
+    direccionPropietario:     string;
+    fechaNumeroRCC:           string;
+    fechaNumeroRCE:           string;
+    fechaNumeroSOAT:          string;
+    fechaNumeroTecnoMecanica: string;
+    fechaTarjetaOperacion:    string;
+    fechaTarjetaOperacionF:   string;
+    idAseguradora:            string;
+    idAsociacion:             string;
+    idMarca:                  string;
+    idMatricula:              string;
+    modelo:                   string;
+    nombrePropietario:        string;
+    numeroChasis:             string;
+    numeroMotor:              string;
+    numeroRCC:                string;
+    numeroRCE:                string;
+    numeroSOAT:               string;
+    numeroTecnoMecanica:      string;
+    placa:                    string;
+    tarjetaOperacion:         string;
+    telefonoPropietario:      string;
+    tipoCombustible:          string;
+}

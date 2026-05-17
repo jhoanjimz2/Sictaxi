@@ -1,0 +1,49 @@
+<div class="contenedor">
+    <div class="row">
+        <div class="col-6 d-flex">
+            <div class="item mr-10" [ngClass]="{'item-select': !estado}" (click)="estado = false">
+                <img [src]="'assets/alertas.svg'">
+                <label>Quejas</label>
+            </div>
+            <div class="item" [ngClass]="{'item-select': estado}" (click)="estado = true">
+                <img [src]="'assets/tramitadas.svg'">
+                <label>Tramitadas</label>
+            </div>
+        </div>
+        <div class="col-6 d-flex flex-end">
+            <button (click)="tramitarTodas()" *ngIf="user?.rol == 'Secretaria'">Tramitar todas</button>
+            <button class="ml-10" mat-dialog-close>Cancelar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col colitems">
+            <div class="card-quejas" [ngClass]="{'list': estado}" *ngFor="let queja of quejasNoTramitadas| orderDate">
+
+                <div class="comentarios" *ngFor="let comentario of queja.comentarios"><div class="check"></div><label>{{comentario.comentario}}</label></div>
+                <div class="comentarios" *ngIf="!queja.comentarios.length"><div class="check"></div><label>Mala Calificación</label></div>
+                <div class="info-usuario" *ngIf="user?.rol == 'Secretaria'">
+                    <label>Email: {{queja.email}}</label>
+                    <label>Nombre: {{queja.nombre}}</label>
+                    <label>Telefono: {{queja.telefono}}</label>
+                    <label>{{queja.fechaRegistro| date: 'dd/MM/YYYY'}}</label>
+                </div>
+
+            </div>
+
+            <div class="card-quejas" [ngClass]="{'list': !estado}" *ngFor="let queja of quejasSiTramitadas| orderDate">
+
+                <div class="comentarios" *ngFor="let comentario of queja.comentarios"><div class="checkTramitado"></div><label>{{comentario.comentario}}</label></div>
+                <div class="comentarios" *ngIf="!queja.comentarios.length"><div class="check"></div><label>Mala Calificación</label></div>
+                <div class="info-usuario"  *ngIf="user?.rol == 'Secretaria'">
+                    <label>Email: {{queja.email}}</label>
+                    <label>Nombre: {{queja.nombre}}</label>
+                    <label>Telefono: {{queja.telefono}}</label>
+                    <label>{{queja.fechaRegistro| date: 'dd/MM/YYYY'}}</label>
+                </div>
+
+            </div>
+
+            <div class="h-40"></div>
+        </div>
+    </div>
+</div>

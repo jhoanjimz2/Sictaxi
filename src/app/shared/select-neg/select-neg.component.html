@@ -1,0 +1,10 @@
+<mat-form-field appearance="fill">
+    <mat-select multiple [placeholder]="'Tipo de comentario negativo'" (selectionChange)="debounce($event)">
+        <mat-option 
+            class="opcionSelect" 
+            *ngFor="let comentario of comentarios" 
+            [value]="comentario.comentario">
+            {{comentario.comentario}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>  

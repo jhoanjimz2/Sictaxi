@@ -1,0 +1,165 @@
+<div class="contenedor-70">
+    <div class="grid">
+        <div class="title-filtro">
+          <label class="title">Estadísticas generales</label>
+          <app-filtro (select)="getCards()" ></app-filtro>
+        </div>
+        <div class="row mt-10">
+            <div class="col" [ngClass]="empresa ? 'centrar-label' : ''">
+                <label *ngIf="empresa">{{empresa}}</label>
+                <app-card-simple
+                    *ngIf="!empresa"
+                    [titulo]="'Empresas autorizadas'"
+                    [data]="dataCards.empresasAutorizadas"
+                    [route]="'/secretaria/empresas-autorizadas'"
+                    [updating]="false"
+                />
+            </div>
+            <div class="col">
+                <app-card-simple
+                    [titulo]="'Conductores registrados'"
+                    [data]="dataCards.taxistasRegistrados"
+                    [route]="'/secretaria/taxistas-registrados'"
+                    [updating]="false"
+                />
+            </div>
+            <div class="col">
+                <app-card-simple
+                  [titulo]="'Conductores con licencia vencida'"
+                  [data]="dataCards.taxisConLicenciaVencida"
+                  [route]="'/secretaria/taxistas-licencia-vencida'"
+                  [updating]="false"
+                />
+            </div>
+            <div class="col">
+                <app-card-simple
+                  [titulo]="'Conductores sin refrendar tarjeta'"
+                  [data]="dataCards.taxistasSinRefrendar"
+                  [route]="'/secretaria/taxistas-sin-refrendar'"
+                  [updating]="false"
+                />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="row mt-20">
+                    <div class="col">
+                        <app-card-simple
+                          [titulo]="'Asociaciones'"
+                          [data]="dataCards.asociaciones"
+                          [route]="'/secretaria/asociaciones'"
+                          [updating]="false"
+                        />
+                    </div>
+                </div>
+                <div class="row mt-20">
+                    <div class="col">
+                        <app-card-simple
+                            [titulo]="'Alertas de vencimiento de documentos'"
+                            [data]="dataCards.alertasDeVencimiento"
+                            [route]="'/secretaria/documentos-vencidos'"
+                            [updating]="false"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="row mt-20">
+                    <div class="col">
+                        <app-card-grafica-modelos/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-20">
+            <div class="col-3">
+                <app-card-simple
+                    [titulo]="'Taxis registrados'"
+                    [data]="dataCards.taxisRegistrados"
+                    [route]="'/secretaria/taxis-registrados'"
+                    [updating]="false"
+                />
+            </div>
+            <div class="col-3">
+                <app-card-simple
+                  [titulo]="'Taxis con SOAT vencido'"
+                  [data]="dataCards.taxisConSoatVencido"
+                  [route]="'/secretaria/taxis-soat-vencido'"
+                  [updating]="false"
+                  />
+            </div>
+            <div class="col-3">
+                <app-card-simple
+                    [titulo]="'Taxis con tarjeta de operación vencida'"
+                    [data]="dataCards.taxisConTarjetaDeOperacionVencida"
+                    [route]="'/secretaria/taxis-tarjeta-vencida'"
+                    [updating]="false"
+                />
+            </div>
+            <div class="col-3">
+                <app-card-simple
+                    [titulo]="'Taxis con Tecnomecanica vencida'"
+                    [data]="dataCards.taxisConTecnomecanicaVencida"
+                    [route]="'/secretaria/taxis-tecnomecanica-vencido'"
+                    [updating]="false"
+                />
+            </div>
+        </div>
+
+        <div class="row mt-20">
+            <div class="col-4">
+              <app-card-simple
+                  [titulo]="'Taxis con RCC vencido'"
+                  [data]="dataCards.taxisConRCCVencido"
+                  [route]="'/secretaria/taxis-rcc-vencido'"
+                  [updating]="false"
+              />
+            </div>
+            <div class="col-4">
+              <app-card-simple
+                  [titulo]="'Taxis con RCE vencido'"
+                  [data]="dataCards.taxisConRCEVencido"
+                  [route]="'/secretaria/taxis-rce-vencido'"
+                  [updating]="false"
+              />
+            </div>
+            <div class="col-4">
+              <app-card-simple
+                  [titulo]="'Matriculas canceladas'"
+                  [data]="dataCards.vehiculoChatarrizados"
+                  [route]="'/secretaria/matriculas-canceladas'"
+                  [updating]="false"
+              />
+            </div>
+        </div>
+
+        <div class="row mt-20">
+            <div class="col">
+                <app-card-grafica-educacion/>
+            </div>
+            <div class="col">
+                <app-card-grafica-estrato/>
+            </div>
+        </div>
+        <div class="row mt-50">
+            <div class="col">
+                <app-card-reporte-calificaciones/>
+            </div>
+        </div>
+        <div class="row mt-50">
+            <div class="col">
+                <app-card-grafica-calificaciones/>
+            </div>
+        </div>
+        <div class="row mt-50">
+            <div class="col">
+                <app-card-grafica-comentarios-neg/>
+            </div>
+        </div>
+        <div class="row mt-50">
+            <div class="col">
+                <app-card-grafica-comentarios-pos/>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="contenedor">
+    <div class="row mt-20">
+        <app-barra-busqueda [placeholder]="'Buscar por placa o cédula'" (searchEvent)="buscando($event)"/>
+    </div>
+    <div class="row mt-40">
+        <div class="col-6">
+            <label class="titulo">Documentos vencidos</label>
+        </div>
+        <div class="col-6 flex-end">
+            <app-export-excel (export)="exportar()"/>
+        </div>
+    </div>
+    <div class="row pb-80">
+        <div class="col-4 mt-20" *ngFor="let taxista of fechasVencida | fechasVencidas : buscar">
+            <div class="card-taxista">
+                <div class="w-img"><img [src]="taxista.imgConductor | imagenes | async"></div>
+                <div class="w-tex">
+                    <label class="cardtitulo">{{taxista.nombre}}</label><br>
+                    <label class="cardsubtitulo">Empresa: <span>{{taxista.empresa}}</span></label><br>
+                    <label class="cardsubtitulo">Cédula: <span>{{taxista.cedula}}</span></label><br>
+                    <label class="cardsubtitulo">Placa: <span>{{taxista.placa}}</span></label><br>
+                    <label class="cardsubtitulo">Licencia: <span>
+                        {{ taxista.licenciaConduccion.includes('+') ? 'En' : '' }}
+                        {{ taxista.licenciaConduccion.includes('-') ? 'Hace' : '' }}
+                        {{ taxista.licenciaConduccion.substring(1) }} días</span>
+                        <img [src]="taxista.licenciaConduccion.includes('+') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label><br>
+                    <label class="cardsubtitulo">Tarjeta de operación: <span>
+                        {{ taxista.tarjetaOperacion.includes('+') ? 'En' : '' }}
+                        {{ taxista.tarjetaOperacion.includes('-') ? 'Hace' : '' }}
+                        {{ taxista.tarjetaOperacion.substring(1) }} días</span>
+                        <img [src]="taxista.tarjetaOperacion.includes('+') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label><br>
+                    <label class="cardsubtitulo">RCC: <span>
+                        {{ taxista.rcc.includes('+') ? 'En' : '' }}
+                        {{ taxista.rcc.includes('-') ? 'Hace' : '' }}
+                        {{ taxista.rcc.substring(1) }} días</span>
+                        <img [src]="taxista.rcc.includes('+') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label><br>
+                    <label class="cardsubtitulo">RCE: <span>
+                        {{ taxista.rce.includes('+') ? 'En' : '' }}
+                        {{ taxista.rce.includes('-') ? 'Hace' : '' }}
+                        {{ taxista.rce.substring(1) }} días</span>
+                        <img [src]="taxista.rce.includes('+') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label><br>
+                    <label class="cardsubtitulo">SOAT: <span>
+                        {{ taxista.soat.includes('+') ? 'En' : '' }}
+                        {{ taxista.soat.includes('-') ? 'Hace' : '' }}
+                        {{ taxista.soat.substring(1) }} días</span>
+                        <img [src]="taxista.soat.includes('+') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label><br>
+                    <label class="cardsubtitulo">Tecnicomecánica: <span>
+                        {{ taxista.tecnicoMecanica.includes('+') ? 'En' : '' }}
+                        {{ taxista.tecnicoMecanica.includes('-') ? 'Hace' : '' }}
+                        {{ taxista.tecnicoMecanica.substring(1) }} días</span>
+                        <img [src]="taxista.tecnicoMecanica.includes('+') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-paginacion ">
+        <app-paginacion
+            *ngIf="totalPages"
+            [cantidad]="totalPages"
+            [focus]="paginaActual"
+            (paginar)="pagina($event)">
+        </app-paginacion>
+    </div>
+</div>

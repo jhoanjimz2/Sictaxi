@@ -1,0 +1,36 @@
+.div-pagination {
+    width: 300px;
+    height: 30px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.opacity-0 {
+    opacity: 0;
+}
+.opacity-1 {
+    opacity: 1;
+}
+button {
+    border: none;
+    background-color: transparent;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.focus {
+    background-color: #8DD7F7;
+    border-radius: 20px;
+}

@@ -1,0 +1,23 @@
+<div class="row" *ngIf="type == 'NEG'">
+    <div class="col-3 cent" *ngFor="let comentario of comentariosN" (mouseover)="hover = comentario.comentario" (mouseout)="hover = ''">
+        <div class="hover" *ngIf="hover == comentario.comentario"><i class="bi bi-caret-down-fill"></i><label>{{comentario.comentario}}: {{cantidad(comentario.comentario)}}</label></div>
+        <div class="color-cuadro" [ngStyle]="{'background': color(comentario.comentario)}"></div>
+        <label class="coment">{{comentario.comentario}}</label>
+    </div>
+</div>
+<div class="row" *ngIf="type == 'POS'">
+    <div class="col-4 cent" *ngFor="let comentario of comentariosP" (mouseover)="hover = comentario.comentario" (mouseout)="hover = ''">
+        <div class="hover" *ngIf="hover == comentario.comentario"><i class="bi bi-caret-down-fill"></i><label>{{comentario.comentario}}: {{cantidad(comentario.comentario)}}</label></div>
+        <div class="color-cuadro" [ngStyle]="{'background': color(comentario.comentario)}"></div>
+        <label class="coment">{{comentario.comentario}}</label>
+    </div>
+</div>
+<div class="row" *ngIf="type == 'CAL'">
+    <div class="col-3"></div>
+    <div class="col-3 cent" *ngFor="let calificacion of calificaciones" (mouseover)="hover = calificacion.comentario" (mouseout)="hover = ''">
+        <div class="hover" *ngIf="hover == calificacion.comentario"><i class="bi bi-caret-down-fill"></i><label>{{calificacion.comentario}}: {{cantidad(calificacion.comentario)}}</label></div>
+        <div class="color-cuadro" [ngStyle]="{'background': color(calificacion.comentario)}"></div>
+        <label class="coment">{{calificacion.comentario}}</label>
+    </div>
+    <div class="col-3"></div>
+</div>

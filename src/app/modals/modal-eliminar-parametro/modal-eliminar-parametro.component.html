@@ -1,0 +1,18 @@
+<div class="contenedor">
+    <div class="pb-20">
+        <label>
+            ¿ Seguro que desea eliminar esta
+            {{ (data.action == 'EPS') ? 'EPS' : undefined  }}
+            {{ (data.action == 'ARL') ? 'ARL' : undefined  }}
+            {{ (data.action == 'AFP') ? 'AFP' : undefined  }}
+            {{ (data.action == 'ASE') ? 'Aseguradora' : undefined  }}
+            {{ (data.action == 'MAR') ? 'Marca' : undefined  }}
+            ?
+        </label>
+    </div>
+    <div class="centrar">
+        <button class="b-b" (click)="eliminar()">Elminar</button> 
+        <div class="w-20"></div> 
+        <button class="b-w" mat-dialog-close>Cancelar</button>
+    </div>
+</div>

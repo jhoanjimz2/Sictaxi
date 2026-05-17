@@ -1,0 +1,7 @@
+<div class="card-metricas sombra">
+  <div class="vineta"></div>
+  <label class="title-card">{{item.titulo}}</label>
+  <label class="porcentaje" [ngClass]="(item.porcentaje >= 50 ) ? 'cg' : 'cr'">{{item.porcentaje}}%</label>
+  <canvas [id]="idGrafica">{{ chart }}</canvas>
+  <label class="subtitle">{{item.total}} {{item.subtitulo}}</label>
+</div>

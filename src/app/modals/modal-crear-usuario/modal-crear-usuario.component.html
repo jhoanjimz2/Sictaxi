@@ -1,0 +1,79 @@
+<form (ngSubmit)="guardar()" [formGroup]="form" autocomplete="off">
+    <div class="contenedor">
+        <div class="row">
+            <div class="col">
+                <label class="titulo">
+                    {{data.type ? 'Editar Usuario' : 'Crear Usuario'}}
+                </label>
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col-6">
+                <label class="subtitulo">Nombres</label>
+                <input type="text" class="input" formControlName="nombres">
+            </div>
+            <div class="col-6">
+                <label class="subtitulo">Apellidos</label>
+                <input type="text" class="input" formControlName="apellidos">
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col-6">
+                <label class="subtitulo">Cédula de ciudadania</label>
+                <input type="number" class="input" formControlName="cedula">
+            </div>
+            <div class="col-6">
+                <label class="subtitulo">Dirección</label>
+                <input type="text" class="input" formControlName="direccion">
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col-6">
+                <label class="subtitulo">Teléfono/celular</label>
+                <input type="number" class="input" formControlName="telefono">
+            </div>
+            <div class="col-6">
+                <label class="subtitulo">E-mail</label>
+                <input type="email" class="input" formControlName="email">
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col-6">
+                <label class="subtitulo">Nueva contraseña</label>
+                <input type="password" class="input" formControlName="nueva">
+            </div>
+            <div class="col-6">
+                <label class="subtitulo">Confirme la nueva contraseña</label>
+                <input type="password" class="input" formControlName="confirmacion">
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col-6">
+                <label class="subtitulo">Rol</label>
+                <select [value]="" class="input" formControlName="rol">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Auxiliar">Auxiliar</option>
+                    <option value="Empresa">Empresa</option>          
+                </select>
+            </div>
+            <div class="col-6">
+                <label class="subtitulo">Empresa</label>
+                <select [value]="" class="input" formControlName="idEmpresa">
+                    <option value="">Selecciona una opción</option>
+                    <option *ngFor="let item of empresas" [value]="item.id">{{item.razonSocial}}</option>                 
+                </select>
+            </div>
+        </div>
+        <div class="row mt-30">
+            <div class="col-6">
+                <label class="advertencia">Solicitar cambio de contraseña al iniciar sesión</label>
+                <mat-slide-toggle formControlName="solicitarCambioclave"></mat-slide-toggle>
+            </div>
+            <div class="col-6 flex-end">
+                <button class="b-b" [disabled]="!form.valid" type="submit"><img [src]="'assets/guardar.svg'">Guardar</button> 
+                <div class="w-20"></div> 
+                <button class="b-w" mat-dialog-close type="button">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</form>

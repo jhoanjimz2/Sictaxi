@@ -1,0 +1,67 @@
+.modal-documentos {
+  padding: 70px;
+}
+.header-modal-documentos {
+  width: 100%;
+  height: 50px;
+  display: table;
+}
+.header-modal-documentos-content {
+  font-size: 28px;
+  font-weight: 500;
+  color: #000;
+  display: flex;
+  text-transform: uppercase;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+}
+.separador {
+  height: 30px;
+  width: 100%;
+}
+.separador-2 {
+  height: 40px;
+}
+.subheader-modal-documentos {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 400;
+  color: #000;
+  line-height: 1;
+  text-align: center;
+}
+mat-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  color: #ff0005;
+}
+img {
+  width:  80px;
+  height: 80px;
+}
+.centrar-columna {
+  text-align: center;
+}
+.left-columna {
+  text-align: left;
+}
+.right-columna {
+  text-align: right;
+}
+
+.botonanimado {
+  width: 150px;
+  height: 35px;
+  border-radius: 25px;
+  background-color: #8DD7F7;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.spinner {
+  zoom: 0.25;
+  display: inline-block;
+  margin: 0 2rem;
+}

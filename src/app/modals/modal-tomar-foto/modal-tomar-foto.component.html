@@ -1,0 +1,23 @@
+<div class="contenedor">
+    <div class="row">
+        <div class="col">
+            <webcam 
+                [height]="500" 
+                [width]="500" 
+                [trigger]="triggerObservable"
+                (initError)="handleInitError($event)"
+                (imageCapture)="handleImage($event)">
+            </webcam>
+        </div>
+    </div>
+    <div class="row pad-20">
+        <div class="col centrar">
+            <button class="sombra" (click)="tomarFoto()"><i class="bi bi-camera"></i></button>
+        </div>
+        <div class="col centrar">
+            <button class="sombra" (click)="cancelar()"><i class="bi bi-x-lg"></i></button>
+        </div>
+    </div>
+</div>
+<!-- closeOnNavigation: false,
+disableClose: true -->

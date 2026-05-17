@@ -1,0 +1,41 @@
+.contenedor {
+    width: 550px;
+    height: 200px;
+    padding: 20px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.titulo {
+    width: 100%;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+.pregunta {
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    color: #00000080;
+    text-align: center;
+}
+.botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        font-size: 14px;
+        width: 120px;
+        height: 30px;
+        background-color: white;
+        border: none;
+        border-radius: 25px;
+        margin-left: 5px;
+        margin-right: 5px;
+        img {
+            margin-right: 10px;
+            height: 15px;
+        }
+    }
+}

@@ -1,0 +1,133 @@
+.contenedor {
+    padding: 15px 20px;
+    height: 100%;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+.titulo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #000;
+    margin-left: 20px;
+}
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.card-taxista {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    border-radius: 25px;
+    margin-top: 20px;
+    padding: 20px;
+}
+.primero {
+    width: 40px;
+    height: initial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        object-fit: cover;
+        cursor: pointer;
+    }
+}
+.segundo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: calc(100% - 40px - 130px - 60px - 340px);
+    padding-left: 20px;
+    .l-h {
+        line-height: 1.2;
+    }
+    .negrita {
+        font-size: 13px;
+        font-weight: bold;
+        color: #000;
+        span {
+            color: #00000070;
+        }
+    }
+}
+.tercero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    .h-10 {
+        height: 10px;
+    }
+}
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    background-color: transparent;
+    border: none;
+    height: 30px;
+    transition: all 0.2s ease-in-out;
+    label {
+        transition: all 0.2s ease-in-out;
+        display: none;
+        cursor: pointer;
+    }
+    img {
+        transition: all 0.2s ease-in-out;
+        height: 15px;
+        cursor: pointer;
+    }
+}
+.button:hover {
+    background-color: #FFF25C;
+    border-radius: 25px;
+    img {
+        margin-right: 5px;
+    }
+    label {
+        display: block;
+        font-size: 11px;
+        font-weight: bold;
+        color: #000;
+    }
+}
+.cuarto {
+    width: 60px;
+    padding: 0px 10px;
+    height: initial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+    }
+}
+.quinto {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 340px;
+    .l-h {
+        line-height: 1.2;
+    }
+    .negrita {
+        font-size: 13px;
+        font-weight: bold;
+        color: #000;
+        span {
+            color: #00000070;
+        }
+    }
+}

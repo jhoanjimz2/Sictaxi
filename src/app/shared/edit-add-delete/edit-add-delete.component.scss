@@ -1,0 +1,12 @@
+.contenedor {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 5px;
+    img {
+        width: 15px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+}

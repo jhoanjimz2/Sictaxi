@@ -1,0 +1,61 @@
+<div class="modal-actualizar-documentos">
+  <div class="header-modal-actualizar-documentos row">
+    <label>Actualizar documentos del conductor</label>
+  </div>
+  <div class="separador"></div>
+  <form (ngSubmit)="actualizar()" [formGroup]="formulario">
+    <div class="content-modal-actualizar-documentos row">
+
+      <div class="col-6">
+        <label class="label-input">Licencia | Fecha de exp.</label>
+        <input
+          class="input-normal"
+          formControlName="F_E_LICENCIA_CONDUCCION"
+          type="text"
+          [placeholder]="'YYYY/MM/DD'"
+          [mask]="'9999/99/99'"
+          [dropSpecialCharacters]="false"
+        >
+        <div *ngIf="formulario.get('F_E_LICENCIA_CONDUCCION')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">       {{ errors?.['required']        }}</div>
+          <div *ngIf="errors?.['invalidDate']">    {{ errors?.['invalidDate']     }}</div>
+          <div *ngIf="errors?.['invalidFormat']">  {{ errors?.['invalidFormat']   }}</div>
+          <div *ngIf="errors?.['dateGreaterThan']">{{ errors?.['dateGreaterThan'] }}</div>
+        </div>
+      </div>
+
+
+
+      <div class="col-6">
+        <label class="label-input">Licencia | Fecha de venc.</label>
+        <input
+          class="input-normal"
+          formControlName="F_V_LICENCIA_CONDUCCION"
+          type="text"
+          [placeholder]="'YYYY/MM/DD'"
+          [mask]="'9999/99/99'"
+          [dropSpecialCharacters]="false"
+        >
+
+        <div *ngIf="formulario.get('F_V_LICENCIA_CONDUCCION')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">       {{ errors?.['required'] }}       </div>
+          <div *ngIf="errors?.['invalidFormat']">  {{ errors?.['invalidFormat'] }}  </div>
+          <div *ngIf="errors?.['invalidDate']">    {{ errors?.['invalidDate'] }}    </div>
+          <div *ngIf="errors?.['dateExpired']">    {{ errors?.['dateExpired'] }}    </div>
+          <div *ngIf="errors?.['dateGreaterThan']">{{ errors?.['dateGreaterThan'] }}</div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="separador"></div>
+    <div class="row">
+      <div class="col-12 col-right">
+        <button class="button-opc-g" type="submit" [disabled]="formulario.invalid">Guardar</button>&nbsp;&nbsp;
+        <button class="button-opc-c" type="button" (click)="close()">Cancelar</button>
+      </div>
+    </div>
+  </form>
+
+</div>

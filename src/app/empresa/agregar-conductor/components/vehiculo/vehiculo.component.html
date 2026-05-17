@@ -1,0 +1,323 @@
+<form (ngSubmit)="_guardar()" [formGroup]="form" autocomplete="off">
+    <div class="card-formulario sombra">
+
+        <div class="row">
+            <div class="col-3">
+                <label class="subtitulo">Placa</label>
+                <input type="text" class="input" formControlName="placa" (keyup)="debounce()">
+                <div *ngIf="form.get('placa')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                  <p *ngIf="errors?.['customPattern']">{{ errors?.['customPattern'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Marca</label>
+                <select type="text" class="input" formControlName="idMarca">
+                    <option *ngFor="let item of marcas" value={{item.id}}>{{item.marca}}</option>
+                </select>
+                <div *ngIf="form.get('idMarca')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Modelo</label>
+                <input type="text" class="input" formControlName="modelo">
+                <div *ngIf="form.get('modelo')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Cédula o NIT de propietario</label>
+                <input type="text" class="input" formControlName="cedulaPropietario">
+                <div *ngIf="form.get('cedulaPropietario')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Nombre completo propietario</label>
+                <input type="text" class="input" formControlName="nombrePropietario">
+                <div *ngIf="form.get('nombrePropietario')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Dirección del propietario</label>
+                <input type="text" class="input" formControlName="direccionPropietario">
+                <div *ngIf="form.get('direccionPropietario')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Teléfono del propietario</label>
+                <input type="text" class="input" formControlName="telefonoPropietario">
+                <div *ngIf="form.get('telefonoPropietario')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Nº Motor</label>
+                <input type="text" class="input" formControlName="numeroMotor">
+                <div *ngIf="form.get('numeroMotor')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Nº Chasis</label>
+                <input type="text" class="input" formControlName="numeroChasis">
+                <div *ngIf="form.get('numeroChasis')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Nº Tarjeta de Operación</label>
+                <input type="text" class="input" formControlName="tarjetaOperacion">
+                <div *ngIf="form.get('tarjetaOperacion')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Fecha de exp. tarjeta</label>
+                <input
+                    type="text"
+                    class="input"
+                    [placeholder]="'aaaa/mm/dd'"
+                    [mask]="'9999/99/99'"
+                    [dropSpecialCharacters]="false"
+                    formControlName="fechaTarjetaOperacion"
+                >
+                <div *ngIf="form.get('fechaTarjetaOperacion')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                  <p *ngIf="errors?.['invalidDateFormat']">{{ errors?.['invalidDateFormat'] }}</p>
+                  <p *ngIf="errors?.['invalidDate']">{{ errors?.['invalidDate'] }}</p>
+                  <p *ngIf="errors?.['dateNotGreaterThanToday']">{{ errors?.['dateNotGreaterThanToday'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Fecha de venc. tarjeta</label>
+                <input
+                    type="text"
+                    class="input"
+                    [placeholder]="'aaaa/mm/dd'"
+                    [mask]="'9999/99/99'"
+                    [dropSpecialCharacters]="false"
+                    formControlName="fechaTarjetaOperacionF"
+                >
+                <div *ngIf="form.get('fechaTarjetaOperacionF')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                  <p *ngIf="errors?.['controlsNotFound']">{{ errors?.['controlsNotFound'] }}</p>
+                  <p *ngIf="errors?.['endDateInvalid']">{{ errors?.['endDateInvalid'] }}</p>
+                  <p *ngIf="errors?.['endDatePast']">{{ errors?.['endDatePast'] }}</p>
+                  <p *ngIf="errors?.['endDateBeforeStart']">{{ errors?.['endDateBeforeStart'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Nº RCC</label>
+                <input type="text" class="input" formControlName="numeroRCC">
+                <div *ngIf="form.get('numeroRCC')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Nº RCE</label>
+                <input type="text" class="input" formControlName="numeroRCE">
+                <div *ngIf="form.get('numeroRCE')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Nº SOAT</label>
+                <input type="text" class="input" formControlName="numeroSOAT">
+                <div *ngIf="form.get('numeroSOAT')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Nº Tecnicomecánica</label>
+                <input type="text" class="input" formControlName="numeroTecnoMecanica">
+                <div *ngIf="form.get('numeroTecnoMecanica')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Fecha de venc. RCC</label>
+                <input
+                    type="text"
+                    class="input"
+                    [placeholder]="'aaaa/mm/dd'"
+                    [mask]="'9999/99/99'"
+                    [dropSpecialCharacters]="false"
+                    formControlName="fechaNumeroRCC"
+                >
+                <div *ngIf="form.get('fechaNumeroRCC')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                  <p *ngIf="errors?.['invalidDateFormat']">{{ errors?.['invalidDateFormat'] }}</p>
+                  <p *ngIf="errors?.['invalidDate']">{{ errors?.['invalidDate'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Fecha de venc. RCE</label>
+                <input
+                    type="text"
+                    class="input"
+                    [placeholder]="'aaaa/mm/dd'"
+                    [mask]="'9999/99/99'"
+                    [dropSpecialCharacters]="false"
+                    formControlName="fechaNumeroRCE"
+                >
+                <div *ngIf="form.get('fechaNumeroRCE')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                  <p *ngIf="errors?.['invalidDateFormat']">{{ errors?.['invalidDateFormat'] }}</p>
+                  <p *ngIf="errors?.['invalidDate']">{{ errors?.['invalidDate'] }}</p>
+                </div>
+            </div>
+
+
+            <div class="col-3">
+              <label class="subtitulo">Fecha de exp. SOAT</label>
+              <input
+                  type="text"
+                  class="input"
+                  [placeholder]="'aaaa/mm/dd'"
+                  [mask]="'9999/99/99'"
+                  [dropSpecialCharacters]="false"
+                  formControlName="fechaExpedicionNumeroSOAT"
+              >
+              <div *ngIf="form.get('fechaExpedicionNumeroSOAT')?.errors as errors" class="label-error">
+                <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                <p *ngIf="errors?.['invalidDateFormat']">{{ errors?.['invalidDateFormat'] }}</p>
+                <p *ngIf="errors?.['invalidDate']">{{ errors?.['invalidDate'] }}</p>
+                <p *ngIf="errors?.['dateNotGreaterThanToday']">{{ errors?.['dateNotGreaterThanToday'] }}</p>
+              </div>
+          </div>
+            <div class="col-3">
+                <label class="subtitulo">Fecha de venc. SOAT</label>
+                <input
+                    type="text"
+                    class="input"
+                    [placeholder]="'aaaa/mm/dd'"
+                    [mask]="'9999/99/99'"
+                    [dropSpecialCharacters]="false"
+                    formControlName="fechaNumeroSOAT"
+                >
+                <div *ngIf="form.get('fechaNumeroSOAT')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                  <p *ngIf="errors?.['controlsNotFound']">{{ errors?.['controlsNotFound'] }}</p>
+                  <p *ngIf="errors?.['endDateInvalid']">{{ errors?.['endDateInvalid'] }}</p>
+                  <p *ngIf="errors?.['endDatePast']">{{ errors?.['endDatePast'] }}</p>
+                  <p *ngIf="errors?.['endDateBeforeStart']">{{ errors?.['endDateBeforeStart'] }}</p>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-3">
+              <label class="subtitulo">Fecha de exp. técnicomecánica</label>
+              <input
+                  type="text"
+                  class="input"
+                  [placeholder]="'aaaa/mm/dd'"
+                  [mask]="'9999/99/99'"
+                  [dropSpecialCharacters]="false"
+                  formControlName="fechaExpedicionNumeroTecnoMecanica"
+              >
+              <div *ngIf="form.get('fechaExpedicionNumeroTecnoMecanica')?.errors as errors" class="label-error">
+                <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                <p *ngIf="errors?.['invalidDateFormat']">{{ errors?.['invalidDateFormat'] }}</p>
+                <p *ngIf="errors?.['invalidDate']">{{ errors?.['invalidDate'] }}</p>
+                <p *ngIf="errors?.['dateNotGreaterThanToday']">{{ errors?.['dateNotGreaterThanToday'] }}</p>
+              </div>
+          </div>
+            <div class="col-3">
+                <label class="subtitulo">Fecha de venc. técnicomecánica</label>
+                <input
+                    type="text"
+                    class="input"
+                    [placeholder]="'aaaa/mm/dd'"
+                    [mask]="'9999/99/99'"
+                    [dropSpecialCharacters]="false"
+                    formControlName="fechaNumeroTecnoMecanica"
+                >
+                <div *ngIf="form.get('fechaNumeroTecnoMecanica')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                  <p *ngIf="errors?.['controlsNotFound']">{{ errors?.['controlsNotFound'] }}</p>
+                  <p *ngIf="errors?.['endDateInvalid']">{{ errors?.['endDateInvalid'] }}</p>
+                  <p *ngIf="errors?.['endDatePast']">{{ errors?.['endDatePast'] }}</p>
+                  <p *ngIf="errors?.['endDateBeforeStart']">{{ errors?.['endDateBeforeStart'] }}</p>
+                </div>
+            </div>
+
+
+            <div class="col-3">
+                <label class="subtitulo">Aseguradora</label>
+                <select type="text" class="input" formControlName="idAseguradora">
+                    <option *ngFor="let item of aseguradoras" value={{item.id}}>{{item.nombre}}</option>
+                </select>
+                <div *ngIf="form.get('idAseguradora')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Asocición</label>
+                <select type="text" class="input" formControlName="idAsociacion">
+                    <option *ngFor="let item of asociaciones" value={{item.id}}>{{item.razonsocial}}</option>
+                </select>
+                <div *ngIf="form.get('idAsociacion')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Nº Registro (censo)</label>
+                <input type="text" class="input" formControlName="idMatricula">
+                <div *ngIf="form.get('idMatricula')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+              <label class="subtitulo">Tipo de combustible</label>
+              <select type="text" class="input" formControlName="tipoCombustible">
+                  <option *ngFor="let item of tipoCombustible" value={{item.id}}>{{item.nombre}}</option>
+              </select>
+              <div *ngIf="form.get('tipoCombustible')?.errors as errors" class="label-error">
+                <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+              </div>
+            </div>
+
+            <div class="check-terms col-12">
+              <label>
+                <input type="checkbox" formControlName="acceptTerms" />
+                Confirmo que acepto los <a (click)="terminos('terminos')" class="link-style">Términos y condiciones</a> de los servicios ofrecidos por Sictaxi
+              </label>
+              <div *ngIf="form.get('acceptTerms')?.errors as errors" class="label-error">
+                <p *ngIf="errors?.['requiredCheckbox']">{{ errors?.['requiredCheckbox'] }}</p>
+              </div>
+            </div>
+
+
+            <div class="check-terms col-12">
+                <label>
+                  <input type="checkbox" formControlName="acceptPolit" />
+                  Autorizo de manera previa, expresa e inequívoca que mis datos personales sean tratados por Sictaxi
+                  conforme a las finalidades establecidas en su <a (click)="terminos('privacidad')" class="link-style">Politica de privadidad</a>
+                  y <a (click)="terminos('tratamiento')" class="link-style">Politica de tratamiento de datos personales</a>
+                </label>
+
+                <div *ngIf="form.get('acceptPolit')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['requiredCheckbox']">{{ errors?.['requiredCheckbox'] }}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mt-20">
+            <div class="col-6"></div>
+            <div class="col-6 end">
+                <button class="sombra bg-b" type="submit" [disabled]="form.invalid"><img [src]="'assets/guardar.svg'">Guardar todo</button>
+                <div class="separador" *ngIf="id"></div>
+                <button class="sombra bg-r" *ngIf="id" type="button" (click)="_refrendar()"><img [src]="'assets/moneda.png'">Refrendar</button>
+                <div class="separador"></div>
+                <button class="sombra bg-r" [routerLink]="'/empresa/buscar-conductores'">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</form>

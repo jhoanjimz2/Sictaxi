@@ -1,0 +1,30 @@
+.content-bar {
+    width: 100%;
+    padding: 5px 0px;
+    background-color: white;
+    border-radius: 25px;
+    border: 2px solid #EFEFEF;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0px;
+}
+.n-p {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+button {
+    background-color: white;
+    border: 0px solid #EFEFEF;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 400;
+    color: black;
+    padding: 0px !important;
+    margin-left: 5px !important;
+    transition: all 0.2s ease-in-out;
+}
+.b-select {
+    background-color: #FFF25C;
+    border: 2px solid #EFEFEF;
+    padding: 0px 10px !important;
+}

@@ -1,0 +1,83 @@
+<div class="modal-documentos">
+  <div class="header-modal-documentos">
+    <div class="header-modal-documentos-content">
+      <mat-icon fontIcon="warning"></mat-icon>&nbsp;
+      <label>Documentos Vencidos</label>
+    </div>
+  </div>
+  <div class="separador"></div>
+  <div class="subheader-modal-documentos">
+    <span *ngIf="vehiculosCount">{{ vehiculosCount }}</span>
+    <mat-spinner *ngIf="!vehiculosCount" class="spinner"></mat-spinner>
+    taxis y
+    <span *ngIf="conductoresCount">{{ conductoresCount }}</span>
+    <mat-spinner *ngIf="!conductoresCount" class="spinner"></mat-spinner>
+    conductores<br>afiliados tienen documentos vencidos
+  </div>
+  <div class="separador"></div>
+
+  <div class="row">
+    <div class="col-4 centrar-columna">
+      <img src="assets/alerts-documents.png"><br>
+      <label>
+        <span *ngIf="especificaciones.fechaTarjetaOperacionF ">{{ especificaciones.fechaTarjetaOperacionF  }}</span>
+        <mat-spinner *ngIf="!especificaciones.fechaTarjetaOperacionF " class="spinner"></mat-spinner>
+        <br>Tarjetas de Operación
+      </label>
+    </div>
+    <div class="col-4 centrar-columna">
+      <img src="assets/alerts-documents.png"><br>
+      <label>
+        <span *ngIf="especificaciones.FechaNumeroTecnomecanica ">{{ especificaciones.FechaNumeroTecnomecanica  }}</span>
+        <mat-spinner *ngIf="!especificaciones.FechaNumeroTecnomecanica " class="spinner"></mat-spinner>
+        <br>Tecnicomecánica
+      </label>
+    </div>
+    <div class="col-4 centrar-columna">
+      <img src="assets/alerts-documents.png"><br>
+      <label>
+        <span *ngIf="especificaciones.fechaLicenciaConduccion ">{{ especificaciones.fechaLicenciaConduccion  }}</span>
+        <mat-spinner *ngIf="!especificaciones.fechaLicenciaConduccion " class="spinner"></mat-spinner>
+        <br>Licencias
+      </label>
+    </div>
+    <div class="separador-2"></div>
+    <div class="col-4 centrar-columna">
+      <img src="assets/alerts-documents.png"><br>
+      <label>
+        <span *ngIf="especificaciones.FechaNumeroRCC ">{{ especificaciones.FechaNumeroRCC  }}</span>
+        <mat-spinner *ngIf="!especificaciones.FechaNumeroRCC " class="spinner"></mat-spinner>
+        <br>RCC
+      </label>
+    </div>
+    <div class="col-4 centrar-columna">
+      <img src="assets/alerts-documents.png"><br>
+      <label>
+        <span *ngIf="especificaciones.FechaNumeroRCE ">{{ especificaciones.FechaNumeroRCE  }}</span>
+        <mat-spinner *ngIf="!especificaciones.FechaNumeroRCE " class="spinner"></mat-spinner>
+        <br>RCE
+      </label>
+    </div>
+    <div class="col-4 centrar-columna">
+      <img src="assets/alerts-documents.png"><br>
+      <label>
+        <span *ngIf="especificaciones.FechaNumeroSOAT ">{{ especificaciones.FechaNumeroSOAT  }}</span>
+        <mat-spinner *ngIf="!especificaciones.FechaNumeroSOAT " class="spinner"></mat-spinner>
+        <br>SOAT
+      </label>
+    </div>
+
+
+  </div>
+  <div class="separador-2"></div>
+
+  <div class="row">
+    <div class="col-6 right-columna">
+      <button *ngIf="type != 'Secretaria'" class="botonanimado sombra" (click)="actualizar()">Actualizar</button>
+      <button *ngIf="type === 'Secretaria'" class="botonanimado sombra" (click)="ver()">Ver</button>
+    </div>
+    <div class="col-6 left-columna">
+      <button class="botonanimado sombra" (click)="close()">Salir</button>
+    </div>
+  </div>
+</div>

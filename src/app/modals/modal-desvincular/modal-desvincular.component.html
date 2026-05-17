@@ -1,0 +1,23 @@
+<form (ngSubmit)="desvincular()" [formGroup]="form" autocomplete="off">
+    <div class="contenedor">
+        <div class="row">
+            <div class="col">
+                <label class="titulo">Desvincular</label>
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col-6">
+                <label class="subtitulo">contraseña</label>
+                <input type="password" class="input" formControlName="password">
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <div class="row mt-30">
+            <div class="col flex-end">
+                <button class="b-b" [disabled]="!form.valid" type="submit"><img [src]="'assets/guardar.svg'" (click)="desvincular()">Guardar</button>
+                <div class="w-20"></div>
+                <button class="sombra" mat-dialog-close type="button">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</form>

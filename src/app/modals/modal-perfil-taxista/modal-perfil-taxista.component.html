@@ -1,0 +1,390 @@
+<div class="contenedor" id="contenedor-scroll">
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8 np">
+            <label class="titulos">Datos del conductor</label>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row mt-10">
+        <div class="col-2">
+            <img *ngIf="taxista?.fotoURL" class="img-profile" [src]="img + taxista.fotoURL | imagenes | async">
+        </div>
+        <div class="col-8">
+            <div class="row lh-13">
+                <div class="col np">
+                    <label class="subtitulos">Nombres y apellidos:</label>
+                    <input disabled [value]="taxista.nombres + ' ' + taxista.apellidos">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Cédula/Licencia:</label>
+                    <input disabled [value]="taxista.licenciaConduccion">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Vence:</label>
+                    <input disabled [value]="taxista.fechaLicenciaConduccion">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Fecha de Nacimiento:</label>
+                    <input disabled [value]="taxista.fechaNacimiento">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Categoría de licencia:</label>
+                    <input disabled [value]="taxista.categoriaPase">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">EPS:</label>
+                    <input disabled [value]="taxista.eps">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">ARL:</label>
+                    <input disabled [value]="taxista.arl">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col np">
+                    <label class="subtitulos">Fondo de pensión:</label>
+                    <input disabled [value]="taxista.afp">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Sexo:</label>
+                    <input disabled [value]="taxista.sexo">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Estado cívil:</label>
+                    <input disabled [value]="taxista.estadoCivil">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Dirección:</label>
+                    <input disabled [value]="taxista.direccion">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Teléfono:</label>
+                    <input disabled [value]="taxista.telefono">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col np">
+                    <label class="subtitulos">Correo electrónico:</label>
+                    <input disabled [value]="taxista.email || 'No Registra'">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Grupo sanguíneo:</label>
+                    <input disabled [value]="taxista.tipoSangre">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">RH:</label>
+                    <input disabled [value]="taxista.rh">
+                </div>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row mt-30">
+        <div class="col-2">
+        </div>
+        <div class="col-8 np">
+            <label class="titulos">Información complementaria</label>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row mt-10">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="row lh-13">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Parentesco jefe hogar:</label>
+                    <input disabled [value]="taxista.parentescoJefeHogar">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Número de hijos:</label>
+                    <input disabled [value]="taxista.numeroHijos">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Personas a cargo:</label>
+                    <input disabled [value]="taxista.personasCargo">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Estudia actualmente:</label>
+                    <input disabled [value]="taxista.estudia">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Nivel educativo:</label>
+                    <input disabled [value]="taxista.nivelEducativoAlcanzado">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Tipo de discapacidad:</label>
+                    <input disabled [value]="taxista.tipoDiscapacidad">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Taxista ocasional:</label>
+                    <input disabled [value]="taxista.taxistaOcacional">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Tiempo como conductor:</label>
+                    <input disabled [value]="taxista.tiempoComoConductor">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">¿Realiza otra labor?:</label>
+                    <input disabled [value]="taxista.otraLabor">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Tiempo otra labor:</label>
+                    <input disabled [value]="taxista.tiempoOtraLabor">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Ingresos como conductor:</label>
+                    <input disabled [value]="taxista.ingresosAproxConductor">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Ingresos otra labor:</label>
+                    <input disabled [value]="taxista.ingresosOtraLabor">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Estrato socioeconómico:</label>
+                    <input disabled [value]="taxista.estratoSocioEconomico">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Tipo de vivienda:</label>
+                    <input disabled [value]="taxista.tipoVivienda">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Acceso a enegía:</label>
+                    <input disabled [value]="taxista.luz">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Acceso a agua:</label>
+                    <input disabled [value]="taxista.agua">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Acceso a gas:</label>
+                    <input disabled [value]="taxista.gas">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Acceso a alcantarillado:</label>
+                    <input disabled [value]="taxista.alcantarillado">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Acceso a recolección de basura:</label>
+                    <input disabled [value]="taxista.recoleccionBasura">
+                </div>
+                <div class="col-5 np-r">
+                </div>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row mt-30">
+        <div class="col-2">
+        </div>
+        <div class="col-8 np">
+            <label class="titulos">Datos de la empresa</label>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row mt-10">
+        <div class="col-2">
+            <img *ngIf="taxista?.logo" class="img-profile" [src]="imgEmpresas+taxista.logo| imagenes | async">
+        </div>
+        <div class="col-8">
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Nombre:</label>
+                    <input disabled [value]="taxista.razonSocial">
+                </div>
+                <div class="col-5 np-r"></div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">NIT:</label>
+                    <input disabled [value]="taxista.nit">
+                </div>
+                <div class="col-5 np-r"></div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Dirección:</label>
+                    <input disabled [value]="taxista.direccionEmpresa">
+                </div>
+                <div class="col-5 np-r"></div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Línea de atención:</label>
+                    <input disabled [value]="taxista.telefonoEmpresa">
+                </div>
+                <div class="col-5 np-r"></div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Correo:</label>
+                    <input disabled [value]="taxista.correoEmpresa">
+                </div>
+                <div class="col-5 np-r"></div>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <div class="row mt-10" [hidden]="!data.completo">
+        <div class="col-2">
+        </div>
+        <div class="col-8 np">
+            <label class="titulos">Datos del vehículo</label>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row mt-10" [hidden]="!data.completo">
+        <div class="col-2">
+            <img [src]="'assets/taxi.svg'">
+        </div>
+        <div class="col-8">
+            <div class="row lh-13">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Placa:</label>
+                    <input disabled [value]="taxista.placa">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Número de censo:</label>
+                    <input disabled [value]="taxista.idMatricula">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Número de motor:</label>
+                    <input disabled [value]="taxista.numeroMotor">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Número de chasis:</label>
+                    <input disabled [value]="taxista.numeroChasis">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Marca:</label>
+                    <input disabled [value]="taxista.marca">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Modelo:</label>
+                    <input disabled [value]="taxista.modelo">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Cédula de propietario:</label>
+                    <input disabled [value]="taxista.cedulaPropietario">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Nombre completo de propietario:</label>
+                    <input disabled [value]="taxista.nombrePropietario">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Dirección del propietario:</label>
+                    <input disabled [value]="taxista.direccionPropietario|| 'No Registra'">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Teléfono del propietario:</label>
+                    <input disabled [value]="taxista.telefonoPropietario|| 'No Registra'">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-4 np-l">
+                    <label class="subtitulos">Asociación:</label>
+                    <input disabled [value]="taxista.asociacion">
+                </div>
+                <div class="col-4 np-r np-l">
+                    <label class="subtitulos">Tarjeta de operación:</label>
+                    <input disabled [value]="taxista.tarjetaOperacion">
+                </div>
+                <div class="col-4 np-r">
+                    <label class="subtitulos">Vence:</label>
+                    <input disabled [value]="taxista.fechaTarjetaOperacionF">
+                </div>
+            </div>
+
+            <div class="row lh-13 mt-10">
+                <div class="col-4 np-l">
+                    <label class="subtitulos">SOAT:</label>
+                    <input disabled [value]="taxista.numeroSOAT">
+                </div>
+                <div class="col-4 np-r np-l">
+                    <label class="subtitulos">Aseguradora:</label>
+                    <input disabled [value]="taxista.aseguradora">
+                </div>
+                <div class="col-4 np-r">
+                    <label class="subtitulos">Vence:</label>
+                    <input disabled [value]="taxista.fechaNumeroSOAT">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Técnico mecánica:</label>
+                    <input disabled [value]="taxista.numeroTecnoMecanica">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Vence:</label>
+                    <input disabled [value]="taxista.fechaNumeroTecnoMecanica">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Seguro contractual:</label>
+                    <input disabled [value]="taxista.numeroRCC">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Vence:</label>
+                    <input disabled [value]="taxista.fechaNumeroRCC">
+                </div>
+            </div>
+            <div class="row lh-13 mt-10">
+                <div class="col-7 np-l">
+                    <label class="subtitulos">Seguro extracontractual:</label>
+                    <input disabled [value]="taxista.numeroRCE">
+                </div>
+                <div class="col-5 np-r">
+                    <label class="subtitulos">Vence:</label>
+                    <input disabled [value]="taxista.fechaNumeroRCE">
+                </div>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <div class="row ptb-30">
+        <div class="col-6 align-end"><button class="btn-imprimir"(click)="descargar()"><img [src]="'assets/imprimir.svg'">Imprimir</button></div>
+        <div class="col-6 align-ini"><button class="btn-cerrar" mat-dialog-close>Cerrar</button></div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.contenedor {
+  padding: 15px 20px;
+  height: 100%;
+}
+.toolbar-filtros {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.separador-cards {
+  height: 10px;
+}
+.titulo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #000;
+}

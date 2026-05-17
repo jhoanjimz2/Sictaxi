@@ -1,0 +1,121 @@
+.contenedor {
+    padding: 15px 20px;
+    height: 100%;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.card-header {
+    width: 100%;
+    padding: 15px 50px;
+    border-radius: 25px;
+    background-color: white;
+    display: flex;
+}
+.w-50 {
+    width: 50%;
+}
+.titulo {
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+.subtitulo {
+    font-size: 14px;
+    font-weight: 400;
+    color: #00000080;
+    cursor: pointer;
+}
+.icon {
+    height: 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.flex-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.flex-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.card-container {
+    width: 100%;
+    height: calc(100vh - 127.5px);
+    background-color: white;
+    border-radius: 25px;
+    padding: 20px 40px 40px 40px;
+    overflow-y: auto;
+}
+.card-user {
+    width: 100%;
+    padding:20px 30px;
+    border-radius: 25px;
+    background-color: white;
+    margin-top: 20px;
+}
+.user-data {
+    width: 100%;
+    line-height: 1;
+}
+.img-profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+.title-username {
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+    cursor: pointer;
+}
+.labels {
+    font-size: 13px;
+    font-weight: bold;
+    color: #000;
+    span {
+        color: #00000070;
+    }
+}
+.botones {
+    width: 100% !important;
+    margin-top: 10px;
+    display: flex;
+    div {
+        width: 10px;
+    }  
+    button {
+        border: none;
+        font-size: 11px;
+        padding: 2px 15px;
+        font-weight: 300;
+        border-radius: 25px;
+        color: white;
+        transition: all 0.2s ease-in-out;
+        width: 113px !important;
+        img {
+            width: 8px;
+            margin-left: 5px;
+        }
+    }
+    button:hover {
+        color: black !important;
+        font-size: 11px;
+        transform: translateY(-3px);
+    }
+}
+.b1 {
+    background-color: #8DD7F7;
+}
+.b2 {
+    background-color: #F30F28;
+    margin-left: auto;
+}
+.b1:hover{
+    background-color: #FFF25C;
+}
+.b2:hover{
+    background-color: #FFF25C;
+}

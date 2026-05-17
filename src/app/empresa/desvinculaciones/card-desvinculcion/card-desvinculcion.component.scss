@@ -1,0 +1,43 @@
+.grid {
+  padding-bottom: 60px;
+}
+.margin-auto {
+  margin: auto;
+  gap: 15px;
+}
+.row-card {
+  background-color: white;
+  border-radius: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+}
+.direccion-centro {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+.image-perfil {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+.label-titulo-placa {
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
+  width: 100%;
+}
+.label-titulo {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+.label-subtitulo {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.4392156863);
+  width: 45px;
+}

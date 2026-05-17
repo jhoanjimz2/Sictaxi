@@ -1,0 +1,41 @@
+<div class="contenedor">
+
+    <div class="row">
+        <div class="col">
+            <div class="card-header sombra">
+                <div class="w-50 flex-start">
+                    <label class="titulo">Usuarios</label>
+                </div>
+                <div class="w-50 flex-end">
+                    <label class="subtitulo" (click)="editar(0, false)">Nuevo usuario</label>
+                    <img [src]="'assets/agregarusuario.svg'" class="icon" (click)="editar(0, false)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-20">
+        <div class="col">
+            <div class="card-container sombra">
+                <div class="row">
+                    <div class="col-3" *ngFor="let usuario of usuarios">
+                        <div class="card-user sombra">
+                            <div class="user-data">
+                                <img [src]="usuario.fotoURL | imagenes | async" class="img-profile"><br>
+                                <label class="title-username">Razón social: <span>{{usuario.razonSocial}}</span></label><br>
+                                <label class="labels">{{usuario.nombres + ' ' + usuario.apellidos}}</label><br>
+                                <label class="labels">Usuario: <span>{{usuario.cedula}}</span></label><br>
+                                <label class="labels">Dirección: <span>{{usuario.direccion}}</span></label><br>
+                                <label class="labels">Teléfono: <span>{{usuario.telefono}}</span></label>
+                            </div>
+                            <!-- <div class="botones">
+                                <button class="b1" (click)="editar(usuario.id, true)">Editar <img [src]="'assets/editar.svg'"></button>
+                                <button class="b2" (click)="eliminar(usuario.id)">Eliminar <img [src]="'assets/eliminar.svg'"></button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

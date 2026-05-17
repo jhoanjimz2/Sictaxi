@@ -1,0 +1,45 @@
+<div>
+
+    <div class="row">
+        <div class="col d-flex-center">
+            <app-datetime (select)="selectDate($event)"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col flex-fin">
+            <div class="label">Tipo de gráfica</div>
+            <div class="d-flex-center">
+                <div class="d-flex-center lineas" (click)="typeGrafica(1)" [ngClass]="{'s': typeGrafic == 1}">
+                    <i class="bi bi-graph-up"></i>
+                </div>
+                <div class="d-flex-center barras" (click)="typeGrafica(2)" [ngClass]="{'s': typeGrafic == 2}">
+                    <i class="bi bi-bar-chart-line-fill"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mtb-5">
+        <div class="col"><label class="title">Reporte de calificaciones</label></div>
+        <div class="col flex-end"><app-export-excel (export)="exportar()"/></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card-grafic">
+                <div class="row">
+                    <div class="col">
+                        <app-dias-meses-anhos 
+                            (select)="setFormat($event)"
+                            [dias]="this.dataGraficaCalificacionesDias.labels ? this.dataGraficaCalificacionesDias.labels.length : 0"
+                            [meses]="this.dataGraficaCalificacionesMeses.labels ? this.dataGraficaCalificacionesMeses.labels.length : 0"
+                            [anhos]="this.dataGraficaCalificacionesAnhos.labels ? this.dataGraficaCalificacionesAnhos.labels.length : 0"
+                        />
+                    </div>
+                </div>
+                <label *ngIf="ceroDatos" class="mensajeError">No hay calificaciones en el rango de fecha selecciondo</label>
+                <canvas  id="ChartCalificaciones">{{ chart }}</canvas>
+            </div>
+        </div>
+    </div>
+    <app-opciones-grafica [seleccionados]="seleccionados" type="CAL" />
+
+</div>

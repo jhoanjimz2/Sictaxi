@@ -1,0 +1,52 @@
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.select {
+    width: 280px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: #FFF25C;
+    border: 1px solid #FFF25C;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.15);
+}
+.export {
+    padding: 5px 20px;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.085);
+    border: none;
+    font-size: 14px;
+}
+.mtb-5 {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+.card-quejas {
+    width: 100%;
+    padding: 20px 20px 40px 20px;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.085);
+}
+.opcionSelect {
+    min-height: 30px;
+}
+.mtb-10 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

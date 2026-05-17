@@ -1,0 +1,54 @@
+<div class="contenedor">
+    <div class="row">
+        <div class="col-6">
+            <label class="titulo">Taxistas sin refrendar</label>
+        </div>
+        <div class="col-6 flex-end">
+            <app-export-excel (export)="exportar()"/>
+            <app-filtro (select)="pagina({pagina: 1})"></app-filtro>
+        </div>
+    </div>
+    <div class="row mt-20 pb-80">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="ptlr">Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Cédula</th>
+                        <th>Licencia de conducción</th>
+                        <th>Fecha de registro</th>
+                        <th>Número de refrendaciones</th>
+                        <th>Última refrendación</th>
+                        <th>Categoría Pase</th>
+                        <th>Placa</th>
+                        <th class="ptrr">Razón social</th>
+                    </tr>
+                </thead>
+                <div class="h-10"></div>
+                <tbody class="bw">
+                  <tr *ngFor="let taxista of taxistas" (click)="datosConductor(taxista.id)">
+                    <td>{{taxista.nombres}}</td>
+                    <td>{{taxista.apellidos}}</td>
+                    <td>{{taxista.cedula}}</td>
+                    <td>{{taxista.licenciaConduccion}}</td>
+                    <td>{{taxista.fechaRegistro| date: 'dd/MM/YYYY'}}</td>
+                    <td>{{taxista.ultima_vinculacion.refrendaciones_count}}</td>
+                    <td>{{taxista.ultima_vinculacion.fechaUltimaRefrendacion| date: 'dd/MM/YYYY'}}</td>
+                    <td>{{taxista.categoriaPase}}</td>
+                    <td>{{taxista.ultima_vinculacion.vehiculo.placa}}</td>
+                    <td>{{taxista.ultima_vinculacion.empresa.razonSocial}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="footer-paginacion ">
+        <app-paginacion
+            *ngIf="totalPages"
+            [cantidad]="totalPages"
+            [focus]="paginaActual"
+            (paginar)="pagina($event)">
+        </app-paginacion>
+    </div>
+</div>

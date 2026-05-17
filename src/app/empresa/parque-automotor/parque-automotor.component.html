@@ -1,0 +1,46 @@
+<div class="contenedor">
+    <div class="row mt-20">
+        <app-barra-busqueda [placeholder]="'Buscar por placa o cédula'" (searchEvent)="buscar($event)"/>
+    </div>
+    <div class="row mt-10">
+        <div class="col-6">
+            <label class="titulo">Parque automotor</label>
+        </div>
+        <div class="col-6 flex-end">
+            <app-export-excel (export)="exportar()"/>
+        </div>
+    </div>
+
+
+    <div class="row pb-80">
+        <div class="col-12" *ngFor="let vehiculo of vahiculos">
+            <div class="card-taxista sombra">
+                <div class="img">
+                    <img [src]="'assets/taxi.svg'">
+                </div>
+                <div class="texts">
+                    <label>{{vehiculo.marca.marca}} Modelo: <span>{{vehiculo.modelo}}</span></label><br>
+                    <label>Empresa: <span>{{vehiculo.ultima_vinculacion.empresa.razonSocial}}</span></label><br>
+                    <label>Placa: <span>{{vehiculo.placa}}</span></label><br>
+                    <label>Número de motor: <span>{{vehiculo.numeroMotor}}</span></label><br>
+                    <label>Número de chasis: <span>{{vehiculo.numeroChasis}}</span></label>
+                </div>
+                <div class="texts">
+                    <label>Propietario: <span>{{vehiculo.nombrePropietario}}</span></label><br>
+                    <label>Cédula: <span>{{vehiculo.cedulaPropietario}}</span></label><br>
+                    <label>Teléfono: <span>{{vehiculo.telefonoPropietario}}</span></label><br>
+                    <label>Dirección: <span>{{vehiculo.direccionPropietario}}</span></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-paginacion ">
+        <app-paginacion
+            *ngIf="totalPages"
+            [cantidad]="totalPages"
+            [focus]="paginaActual"
+            (paginar)="pagina($event)">
+        </app-paginacion>
+    </div>
+</div>

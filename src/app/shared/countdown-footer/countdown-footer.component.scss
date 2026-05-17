@@ -1,0 +1,36 @@
+.footer-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.countdown {
+  display: flex;
+  gap: 10px;
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.time-box {
+  background: #34495e;
+  padding: 8px 12px;
+  border-radius: 6px;
+  min-width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.number {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #f39c12;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: white;
+}

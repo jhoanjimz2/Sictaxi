@@ -1,0 +1,133 @@
+
+.contenedor {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.modal-header{
+    justify-content: center; 
+    text-align: center;
+}
+.modal-content-validacion{
+    max-width: 100%;
+    padding: 0px 21px;
+    text-align: center;
+    margin: 0 auto;
+}
+.inline-text-validacion{
+    max-width: 70%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+.inline-element {
+    font-size: 24px;
+    font-weight: 600;
+}
+.link {
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    text-decoration: underline;
+    color: initial;
+    margin-top: 15px;
+}
+.link:hover {
+    color: rgb(0, 123, 255); 
+    cursor: pointer;
+}
+.inline-text{
+    text-align: center;
+    font-size: 21px;
+    font-weight: 600;
+}
+.content-registrar-numero{
+    padding: 35px 170px;
+}
+.content-number{
+    width: 745px;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.content-number .new-number{
+    width: 700px;
+    border-radius: 20px;
+    height: 35px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.content-validar-nuevamente{
+    padding: 35px 22px;
+    text-align: center;
+}
+.inline-text-validar-nuevamente{
+    text-align: center;
+    font-size: 21px;
+    font-weight: 600;
+    width: 700px;
+    display: block;
+    margin: 0 auto;
+}
+
+.codigo-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 5px 0px 25px 0px;
+}
+.codigo-inputs input {
+    width: 40px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.new-number::-webkit-inner-spin-button,
+.new-number::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+  
+.b-w {
+    background-color: white;
+    border: 2px solid #00000060;
+    padding: 2px 40px;
+}
+.b-b {
+    background-color: #8dd7f7;
+    border: 2px solid #8dd7f7;
+    padding: 2px 45px;
+}
+button {
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    border-radius: 25px;
+    height: 30px;
+}
+.w-20 {
+    width: 20px;
+}
+    
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+::ng-deep .custom-snackbar {
+  text-align: center !important;
+  position: absolute !important;
+  top: -350px !important;
+
+}
+
+  
+ 

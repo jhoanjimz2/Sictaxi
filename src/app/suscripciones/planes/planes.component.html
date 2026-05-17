@@ -1,0 +1,10 @@
+<div class="min-h-screen w-full flex items-center justify-center">
+  <div class="max-w-full px-4 w-full mx-auto">
+    <!-- Step 1: Selección de Plan -->
+    <app-plan-selection
+                        [plans]="plans"
+                        [isAnnual]="isAnnual"
+                        (paymentSubmitted)="onPaymentSubmitted($event)">
+    </app-plan-selection>
+  </div>
+</div>

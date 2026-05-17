@@ -1,0 +1,40 @@
+<div class="contenedor-20">
+    <div class="row  pl-50">
+        <div class="col-6 flex-start">
+            <label class="title">Empresas</label>
+        </div>
+        <div class="col-6 flex-end">
+            <button class="opc" (click)="editar(null)"> Nueva empresa <img [src]="'assets/empresa.svg'"></button>
+            <app-export-excel (export)="exportar()"/>
+        </div>
+    </div>
+    <div class="row pb-80">
+        <div class="col-6 mt-20" *ngFor="let empresa of empresas; let i = index">
+            <div class="card-empresa">
+                <div class="imagen">
+                    <img [src]="empresa.logo">
+                </div>
+                <div class="text">
+                    <label class="titulo">{{ empresa.nombreEmpresa }}</label>
+                    <label class="incisos">NIT      : <span>{{empresa.nit}}</span></label>
+                    <label class="incisos">Direccion: <span>{{empresa.direccion}}</span></label>
+                    <label class="incisos">Telefono : <span>{{empresa.telefono}}</span></label>
+                    <label class="incisos">email    : <span>{{empresa.email}}</span></label>
+                </div>
+                <div class="botones">
+                    <button class="b1" (click)="editar(empresa.id)">Editar <img [src]="'assets/editar.svg'"></button>
+                    <div></div>
+                    <button class="b2" (click)="eliminar(empresa.id)">Eliminar <img [src]="'assets/eliminar.svg'"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-paginacion ">
+        <app-paginacion
+            *ngIf="totalPages"
+            [cantidad]="totalPages"
+            [focus]="paginaActual"
+            (paginar)="pagina($event)">
+        </app-paginacion>
+    </div>
+</div>

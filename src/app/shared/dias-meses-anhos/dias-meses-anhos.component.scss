@@ -1,0 +1,22 @@
+div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+button {
+    background-color: white;
+    border: 0px solid #EFEFEF;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 400;
+    color: black;
+    padding: 0px !important;
+    margin-left: 5px !important;
+    transition: all 0.2s ease-in-out;
+}
+.b-select {
+    background-color: #FFF25C;
+    border: 2px solid #EFEFEF;
+    padding: 0px 10px !important;
+}

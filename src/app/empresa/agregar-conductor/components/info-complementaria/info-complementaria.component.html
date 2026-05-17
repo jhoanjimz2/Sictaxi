@@ -1,0 +1,246 @@
+<form (ngSubmit)="_next()" [formGroup]="form" autocomplete="off">
+    <div class="card-formulario sombra">
+
+        <div class="row">
+            <div class="col-3">
+                <label class="subtitulo">Parentesco jefe hogar</label>
+                <select type="text" class="input" formControlName="parentescoJefeHogar">
+                    <option value="Jefe de hogar">Jefe de hogar</option>
+                    <option value="Padre">Padre</option>
+                    <option value="Hijo(a)">Hijo(a)</option>
+                    <option value="Madre">Madre</option>
+                    <option value="Hermano(a)">Hermano(a)</option>
+                    <option value="Primo(a)">Primo(a)</option>
+                    <option value="Sobrino(a)">Sobrino(a)</option>
+                    <option value="Nieto(a)">Nieto(a)</option>
+                    <option value="Ahijado(a)">Ahijado(a)</option>
+                </select>
+                <div *ngIf="form.get('parentescoJefeHogar')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Número de hijos</label>
+                <input type="text" class="input" formControlName="numeroHijos">
+                <div *ngIf="form.get('numeroHijos')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Personas a cargo</label>
+                <input type="text" class="input" formControlName="personasCargo">
+                <div *ngIf="form.get('personasCargo')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Nivel educativo</label>
+                <select type="text" class="input" formControlName="nivelEducativoAlcanzado">
+                    <option value="Ninguno">Ninguno</option>
+                    <option value="Bachiller">Bachiller</option>
+                    <option value="Técnico">Técnico</option>
+                    <option value="Tecnológo">Tecnológo</option>
+                    <option value="Profesional">Profesional</option>
+                    <option value="Postgrado">Postgrado</option>
+                </select>
+                <div *ngIf="form.get('nivelEducativoAlcanzado')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">¿Estudia actualmente?</label>
+                <select type="text" class="input" formControlName="estudia">
+                    <option value="2">No</option>
+                    <option  value="1">Si</option>
+                </select>
+                <div *ngIf="form.get('estudia')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Tipo de discapacidad</label>
+                <select type="text" class="input" formControlName="tipoDiscapacidad">
+                    <option value="No posee">No posee</option>
+                    <option value="Física">Física</option>
+                    <option value="Sensorial">Sensorial</option>
+                    <option value="Psíquica">Psíquica</option>
+                    <option value="Intelectual o mental">Intelectual o mental</option>
+                </select>
+                <div *ngIf="form.get('tipoDiscapacidad')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Taxista ocasional</label>
+                <select type="text" class="input" formControlName="taxistaOcacional">
+                    <option value="2">No</option>
+                    <option  value="1">Si</option>
+                </select>
+                <div *ngIf="form.get('taxistaOcacional')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Tiempo como conductor</label>
+                <div class="combi">
+                    <input type="number" class="input-iz" formControlName="tiempoComoConductor">
+                    <select class="input-de" formControlName="conductorLaborUnidad">
+                        <option value="1">Meses</option>
+                        <option value="2">Años</option>
+                    </select>
+                </div>
+                <div *ngIf="form.get('tiempoComoConductor')?.errors as errors" class="label-error iz">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                  <p *ngIf="errors?.['numeroInvalido']">{{ errors?.['numeroInvalido'] }}</p>
+                  <p *ngIf="errors?.['noEntero']">{{ errors?.['noEntero'] }}</p>
+                  <p *ngIf="errors?.['menorQueCero']">{{ errors?.['menorQueCero'] }}</p>
+                </div>
+                <div *ngIf="form.get('conductorLaborUnidad')?.errors as errors" class="label-error de">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Ingresos como conductor</label>
+                <select type="text" class="input" formControlName="ingresosAproxConductor">
+                    <option value="0-500.000">0-500.000</option>
+                    <option value="500.001-1.000.000">500.001-1.000.000</option>
+                    <option value="2-2.5">2-2.5</option>
+                    <option value="2.5-3">2.5-3</option>
+                </select>
+                <div *ngIf="form.get('ingresosAproxConductor')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">¿Realiza otra labor?</label>
+                <select type="text" class="input" formControlName="otraLabor" (change)="otraLab()">
+                    <option value="2">No</option>
+                    <option  value="1">Si</option>
+                </select>
+                <div *ngIf="form.get('otraLabor')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3" *ngIf="form.controls['otraLabor'].value == '1'">
+                <label class="subtitulo">Ingresos otra labor</label>
+                <select type="text" class="input" formControlName="ingresosOtraLabor">
+                    <option value="0-500.000">0-500.000</option>
+                    <option value="500.001-1.000.000">500.001-1.000.000</option>
+                    <option value="2-2.5">2-2.5</option>
+                    <option value="2.5-3">2.5-3</option>
+                </select>
+                <div *ngIf="form.get('ingresosOtraLabor')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3" *ngIf="form.controls['otraLabor'].value == '1'">
+                <label class="subtitulo">Tiempo de la otra labor</label>
+                <div class="combi">
+                  <input type="number" class="input-iz" formControlName="tiempoOtraLabor">
+                  <select class="input-de" formControlName="otraLaborUnidad">
+                    <option value="1">Meses</option>
+                    <option value="2">Años</option>
+                  </select>
+                </div>
+                <div *ngIf="form.get('tiempoOtraLabor')?.errors as errors" class="label-error iz">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                  <p *ngIf="errors?.['numeroInvalido']">{{ errors?.['numeroInvalido'] }}</p>
+                  <p *ngIf="errors?.['noEntero']">{{ errors?.['noEntero'] }}</p>
+                  <p *ngIf="errors?.['menorQueCero']">{{ errors?.['menorQueCero'] }}</p>
+                </div>
+                <div *ngIf="form.get('otraLaborUnidad')?.errors as errors" class="label-error de">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Estatro socioeconomico</label>
+                <select type="text" class="input" formControlName="estratoSocioEconomico">
+                    <option value="SIN ESTRATO">SIN ESTRATO</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+                <div *ngIf="form.get('estratoSocioEconomico')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Tipo de vivienda</label>
+                <select type="text" class="input" formControlName="tipoVivienda">
+                    <option value="Propia">Propia</option>
+                    <option value="Arrendada">Arrendada</option>
+                    <option value="Familiar">Familiar</option>
+                </select>
+                <div *ngIf="form.get('tipoVivienda')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Acceso a energía</label>
+                <select type="text" class="input" formControlName="luz">
+                    <option value="2">No</option>
+                    <option value="1">Si</option>
+                </select>
+                <div *ngIf="form.get('luz')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Acceso a agua</label>
+                <select type="text" class="input" formControlName="agua">
+                    <option value="2">No</option>
+                    <option value="1">Si</option>
+                </select>
+                <div *ngIf="form.get('agua')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Acceso a gas</label>
+                <select type="text" class="input" formControlName="gas">
+                    <option value="2">No</option>
+                    <option value="1">Si</option>
+                </select>
+                <div *ngIf="form.get('gas')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Acceso a alcantarillado</label>
+                <select type="text" class="input" formControlName="alcantarillado">
+                    <option value="2">No</option>
+                    <option value="1">Si</option>
+                </select>
+                <div *ngIf="form.get('alcantarillado')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="subtitulo">Acceso a recoleción de basura</label>
+                <select type="text" class="input" formControlName="recoleccionBasura">
+                    <option value="2">No</option>
+                    <option value="1">Si</option>
+                </select>
+                <div *ngIf="form.get('recoleccionBasura')?.errors as errors" class="label-error">
+                  <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row mt-20">
+            <div class="col-6"></div>
+            <div class="col-6 end">
+                <button class="sombra bg-b" type="submit" [disabled]="form.invalid"><img [src]="'assets/guardar.svg'">Guardar todo</button>
+                <div class="separador" *ngIf="id"></div>
+                <button class="sombra bg-r" *ngIf="id" type="button"(click)="_refrendar()"><img [src]="'assets/moneda.png'">Refrendar</button>
+                <div class="separador"></div>
+                <button class="sombra bg-r" [routerLink]="'/empresa/buscar-conductores'">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</form>

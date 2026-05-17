@@ -1,0 +1,102 @@
+<div class="grid">
+  <div *ngIf="vehiculos.length === 0" class="mensaje-centrado">
+    <div class="message-container">
+      <p>No hay vehiculos con documentos vencidos.</p>
+      <p>Los datos están actualizados.</p>
+    </div>
+
+  </div>
+  <div *ngIf="vehiculos.length > 0" class="row margin-auto">
+    <div *ngFor="let vehiculo of vehiculos" class="row-card col-12">
+      <div class="width-10 direccion-centro">
+        <img class="image-carro" src="assets/car.png">
+      </div>
+      <div class="width-90">
+        <div class="row">
+          <div class="col-12">
+            <span class="label-titulo-placa">
+              {{vehiculo.marca}} {{vehiculo.modelo}} - {{ vehiculo.placa }}
+            </span>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="width-20 direccion">
+            <div class="direccion-left">
+              <span class="label-titulo">Propietario:</span>&nbsp;
+              <span class="label-subtitulo suspensivos">
+                {{ vehiculo.nombres }} {{ vehiculo.apellidos }}
+              </span>
+            </div>
+            <div class="direccion-left">
+              <span class="label-titulo">Cedula:</span>&nbsp;
+              <span class="label-subtitulo suspensivos">{{ vehiculo.cedula }}</span>
+            </div>
+            <div class="direccion-left">
+              <span class="label-titulo">Telefono:</span>&nbsp;
+              <span class="label-subtitulo suspensivos">{{vehiculo.telefonoPropietario}}</span>
+            </div>
+          </div>
+
+          <div class="width-25 direccion">
+            <div class="direccion-left">
+              <mat-icon [fontIcon]="isDatePast(vehiculo.FechaNumeroRCC) ? 'warning' : 'check_circle'" [class]="isDatePast(vehiculo.FechaNumeroRCC) ? 'warning' : 'check'"></mat-icon>&nbsp;
+              <span class="label-titulo">RCC:</span>&nbsp;
+              <span class="label-subtitulo suspensivos">
+                {{ vehiculo.FechaNumeroRCC | date: 'yyyy/MM/dd' }}
+              </span>
+              <button class="editar-boton" (click)="openModalActualizar(vehiculo,'RCC')"> Editar </button>&nbsp;
+              <mat-icon [fontIcon]="'edit'" class="editar-icon" (click)="openModalActualizar(vehiculo, 'RCC')"></mat-icon>
+            </div>
+            <div class="direccion-left">
+              <mat-icon [fontIcon]="isDatePast(vehiculo.FechaNumeroRCE) ? 'warning' : 'check_circle'" [class]="isDatePast(vehiculo.FechaNumeroRCE) ? 'warning' : 'check'"></mat-icon>&nbsp;
+              <span class="label-titulo">RCE:</span>&nbsp;
+              <span class="label-subtitulo suspensivos">
+                {{ vehiculo.FechaNumeroRCE | date: 'yyyy/MM/dd' }}
+              </span>
+              <button class="editar-boton" (click)="openModalActualizar(vehiculo,'RCE')"> Editar </button>&nbsp;
+              <mat-icon [fontIcon]="'edit'" class="editar-icon" (click)="openModalActualizar(vehiculo, 'RCE')"></mat-icon>
+            </div>
+            <div class="direccion-left">
+              <mat-icon [fontIcon]="isDatePast(vehiculo.FechaNumeroSOAT) ? 'warning' : 'check_circle'" [class]="isDatePast(vehiculo.FechaNumeroSOAT) ? 'warning' : 'check'"></mat-icon>&nbsp;
+              <span class="label-titulo">SOAT:</span>&nbsp;
+              <span class="label-subtitulo suspensivos">
+                {{ vehiculo.FechaNumeroSOAT | date: 'yyyy/MM/dd' }}
+              </span>
+              <button class="editar-boton" (click)="openModalActualizar(vehiculo,'SOAT')"> Editar </button>&nbsp;
+              <mat-icon [fontIcon]="'edit'" class="editar-icon" (click)="openModalActualizar(vehiculo, 'SOAT')"></mat-icon>
+            </div>
+          </div>
+
+          <div class="width-35 direccion">
+            <div class="direccion-left">
+              <mat-icon [fontIcon]="isDatePast(vehiculo.fechaTarjetaOperacionF) ? 'warning' : 'check_circle'" [class]="isDatePast(vehiculo.fechaTarjetaOperacionF) ? 'warning' : 'check'"></mat-icon>&nbsp;
+              <span class="label-titulo">Tarjeta de operación:</span>&nbsp;
+              <span class="label-subtitulo suspensivos">
+                {{ vehiculo.fechaTarjetaOperacionF | date: 'yyyy/MM/dd' }}
+              </span>
+              <button class="editar-boton" (click)="openModalActualizar(vehiculo,'TARJETA_OPERACION')"> Editar </button>&nbsp;
+              <mat-icon [fontIcon]="'edit'" class="editar-icon" (click)="openModalActualizar(vehiculo, 'TARJETA_OPERACION')"></mat-icon>
+            </div>
+
+            <div class="direccion-left">
+              <mat-icon [fontIcon]="isDatePast(vehiculo.FechaNumeroTecnomecanica) ? 'warning' : 'check_circle'" [class]="isDatePast(vehiculo.FechaNumeroTecnomecanica) ? 'warning' : 'check'"></mat-icon>&nbsp;
+              <span class="label-titulo">Tecnicomecánica:</span>&nbsp;
+              <span class="label-subtitulo suspensivos">
+                {{ vehiculo.FechaNumeroTecnomecanica | date: 'yyyy/MM/dd' }}
+              </span>
+              <button class="editar-boton" (click)="openModalActualizar(vehiculo,'TECNOMECANICA')"> Editar </button>&nbsp;
+              <mat-icon [fontIcon]="'edit'" class="editar-icon" (click)="openModalActualizar(vehiculo, 'TECNOMECANICA')"></mat-icon>
+            </div>
+          </div>
+
+          <div class="width-20 direccion-centro">
+            <button class="button-opc-d" (click)="openModalDesvincular(vehiculo)">Desvincular</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

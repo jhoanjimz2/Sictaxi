@@ -1,0 +1,15 @@
+<div class="listado" *ngIf="!cargando && taxistas.length && !message(taxistas | taxistasEasy : search)">
+    <div class="item d-flex ordenar" *ngFor="let taxista of taxistas | taxistasEasy : search">
+        <img [src]="taxista.img| imagenes | async" (click)="datosConductor(taxista.id)">
+        <label class="name" (click)="datosConductor(taxista.id)">{{taxista.name}} {{taxista.surname}}</label>
+        <label class="guion" (click)="datosConductor(taxista.id)">-</label>
+        <label class="placa" (click)="datosConductor(taxista.id)">PLACA: {{taxista.placa}}</label>
+        <div class="cant" (click)="calificaciones(taxista.ultima_vinculacion.id)">{{taxista.cantidad}}</div>
+    </div>
+</div>
+<div class="texto" *ngIf="!cargando && !taxistas.length || message(taxistas | taxistasEasy : search)">
+    <label>No hay conductores</label>
+</div>
+<div class="loading" *ngIf="cargando">
+    <mat-spinner></mat-spinner>
+</div>

@@ -1,0 +1,50 @@
+<div class="grid">
+  <div *ngIf="conductores.length === 0" class="mensaje-centrado">
+    <div class="message-container">
+      <p>No hay conductores con documentos vencidos.</p>
+      <p>Los datos están actualizados.</p>
+    </div>
+
+  </div>
+  <div *ngIf="conductores.length > 0" class="row margin-auto">
+    <div *ngFor="let conductor of conductores" class="row-card col-12">
+      <div class="width-10 direccion-centro">
+        <img [src]="conductor.fotoURL | imagenes | async" class="image-perfil">
+      </div>
+      <div class="width-90">
+        <div class="row">
+          <div class="col-12">
+            <span class="label-titulo-placa">{{ conductor.nombres }} {{ conductor.apellidos }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="width-20 direccion">
+            <div class="suspensivos">
+              <span class="label-titulo">Cédula:</span>&nbsp;
+              <span class="label-subtitulo">{{ conductor.cedula }}</span>
+            </div>
+            <div class="suspensivos">
+              <span class="label-titulo">Teléfono:</span>&nbsp;
+              <span class="label-subtitulo">{{conductor.telefono}}</span>
+            </div>
+            <div class="suspensivos">
+              <span class="label-titulo">Dirección:</span>&nbsp;
+              <span class="label-subtitulo">{{conductor.direccion}}</span>
+            </div>
+          </div>
+          <div class="width-35 direccion">
+            <div class="suspensivos">
+              <mat-icon fontIcon="warning"></mat-icon>&nbsp;
+              <span class="label-titulo">Licencia:</span>&nbsp;
+              <span class="label-subtitulo">
+                {{ conductor.fechaLicenciaConduccion | date:'yyyy/MM/dd' }}
+              </span>
+            </div>
+          </div>
+          <div class="width-25 direccion"></div>
+          <div class="width-20 direccion-centro"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

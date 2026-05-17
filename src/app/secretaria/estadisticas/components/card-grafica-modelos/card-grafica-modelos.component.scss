@@ -1,0 +1,21 @@
+.card-grafica {
+    width: 100%;
+    padding: 15px;
+    height: 460px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.085);
+    background-color: white;
+    position: relative;
+    .title {
+        font-size: 19px;
+        font-weight: bold;
+        color: #000;
+        line-height: 1.2;
+    }
+    .h-10 {
+        height: 10px;
+    }
+    .grafic {
+        width: 98%;
+    }
+}

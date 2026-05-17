@@ -1,0 +1,36 @@
+<div class="content-form">
+    <form (ngSubmit)="login()" [formGroup]="formulario" autocomplete="off">
+        <div class="row-one centrar">
+            <img [src]="'assets/logosictaxi.svg'">
+        </div>
+        <div class="row-two centrar">
+            <label>
+                Sistema de información y registro de <br>
+                conductores del servicio público de <br>
+                taxi del distrito de Santa Marta
+            </label>
+        </div>
+        <div class="row-three">
+            <label>Inicie sesión en su cuenta</label>
+        </div>
+        <div class="row-four">
+            <div class="in">
+                <label>Usuario</label>
+                <img [src]="'assets/usuario.svg'" class="init">
+                <input formControlName="email" type="text">
+            </div>
+            <div class="in">
+                <label>Contraseña</label>
+                <img [src]="'assets/contrasena.svg'" class="init">
+                <img [src]="'assets/vercontrasena.svg'" class="finit" (click)="show = !show">
+                <input [type]="show ? 'text' : 'password'" formControlName="password">
+            </div>
+        </div>
+        <div class="row-five">
+            <label (click)="olvi()">¿Olvidó contraseña?</label>
+        </div>
+        <div class="row-six centrar">
+            <button class="sombra" type="submit" [disabled]="!formulario.valid">Ingresar</button>
+        </div>
+    </form>
+</div>

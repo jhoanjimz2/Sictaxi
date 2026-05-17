@@ -1,0 +1,22 @@
+.pad-20 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.centrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #8DD7F7;
+    color: white;
+    font-size: 16px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+button:hover {
+    transform: translateY(-3px);
+}

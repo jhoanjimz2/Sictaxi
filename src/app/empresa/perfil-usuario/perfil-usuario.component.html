@@ -1,0 +1,76 @@
+<form (ngSubmit)="guardar()" [formGroup]="form" autocomplete="off">
+    <div class="contenedor">
+        <div class="row">
+            <div class="col">
+                <div class="card-header sombra">
+                    <label class="titulo">Datos del usuario</label>
+                    <div class="imgprofile" (click)="cambiarImg()">
+                        <img class="imgpro" [src]="user.fotoUrl | imagenes | async">
+                        <div class="sobre"><img [src]="'assets/editar.svg'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-20">
+            <div class="col">
+                <div class="card-formulario sombra">
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="subtitulo">Cédula de ciudadanía</label>
+                            <input type="text" class="input" formControlName="cedula">
+                        </div>
+                        <div class="col-4">
+                            <label class="subtitulo">Nombres</label>
+                            <input type="text" class="input" formControlName="nombres">
+                        </div>
+                        <div class="col-4">
+                            <label class="subtitulo">Apellidos</label>
+                            <input type="text" class="input" formControlName="apellidos">
+                        </div>
+                    </div>
+                    <div class="row mt-20">
+                        <div class="col-4">
+                            <label class="subtitulo">Dirección</label>
+                            <input type="text" class="input" formControlName="direccion">
+                        </div>
+                        <div class="col-4">
+                            <label class="subtitulo">Teléfono/celular</label>
+                            <input type="text" class="input" formControlName="telefono">
+                        </div>
+                        <div class="col-4">
+                            <label class="subtitulo">E-mail</label>
+                            <input type="text" class="input" formControlName="email">
+                        </div>
+                    </div>
+                    <div class="row mt-20">
+                        <div class="col-4">
+                            <label class="subtitulo">Tipo de impresora (tarjetón)</label>
+                            <select type="text" class="input" formControlName="tipoImpresion">
+                                <option value="1">Laser</option>
+                                <option value="2">Inyección de Tinta</option>
+                            </select>
+                        </div>
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <label class="subtitulo">Tipo de diseño (tarjetón)</label>
+                            <select type="text" class="input" formControlName="tipoTarjeton">
+                                <option value="1">Tipo 1</option>
+                                <option value="2">Tipo 2</option>
+                                <option value="3">Tipo 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-20">
+                        <div class="content-buttons">
+                            <button class="sombra bg-b" type="submit" [disabled]="!form.valid"><img [src]="'assets/guardar.svg'">Guardar todo</button>
+                            <div class="separador"></div>
+                            <button class="sombra bg-y" (click)="cambiarPassword()" type="button"><img [src]="'assets/llave.svg'">Cambiar contraseña</button>
+                            <div class="separador"></div>
+                            <button class="sombra bg-r" [routerLink]="'/empresa/buscar-conductores'" type="button">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

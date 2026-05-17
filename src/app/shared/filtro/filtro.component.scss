@@ -1,0 +1,14 @@
+.centrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;/* Espacio entre los selects */
+}
+mat-option {
+  font-size: 12px;
+  text-align: left;
+  display: flex;
+  min-height: 25px;
+}
+.mat-mdc-option {
+  justify-content: left !important;
+}

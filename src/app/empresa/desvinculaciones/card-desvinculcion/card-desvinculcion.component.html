@@ -1,0 +1,54 @@
+
+
+<div class="grid">
+  <div class="row margin-auto">
+    <div *ngFor="let desvinculacion of desvinculaciones" class="row-card col-12">
+      <div class="col-1 direccion-centro">
+        <img [src]="prevImg + desvinculacion.conductor.fotoURL| imagenes | async" class="image-perfil">
+      </div>
+      <div class="col-11">
+
+        <div class="row">
+          <div class="col-12 suspensivos">
+            <span class="label-titulo-placa">{{ desvinculacion.conductor.nombres + ' ' + desvinculacion.conductor.apellidos }} - CC {{ desvinculacion.conductor.cedula }}</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <div class="suspensivos">
+              <span class="label-titulo">Placa:</span>&nbsp;
+              <span class="label-subtitulo">{{ desvinculacion.vehiculo.placa }}</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="suspensivos">
+              <span class="label-titulo">Telefono:</span>&nbsp;
+              <span class="label-subtitulo">{{ desvinculacion.conductor.telefono }}</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="suspensivos">
+              <span class="label-titulo">Dirección:</span>&nbsp;
+              <span class="label-subtitulo">{{ desvinculacion.conductor.direccion }}</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="suspensivos">
+              <span class="label-titulo">Fecha de vinculación:</span>&nbsp;
+              <span class="label-subtitulo">{{ desvinculacion.fechaRegistro }}</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="suspensivos">
+              <span class="label-titulo">Fecha de desvinculación:</span>&nbsp;
+              <span class="label-subtitulo">{{ desvinculacion.fechaEliminacion }}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

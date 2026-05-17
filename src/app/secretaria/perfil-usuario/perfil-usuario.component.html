@@ -1,0 +1,59 @@
+<form (ngSubmit)="guardar()" [formGroup]="form" autocomplete="off">
+    <div class="contenedor">
+
+        <div class="row">
+            <div class="col">
+                <div class="card-header sombra">
+                    <label class="titulo">Datos del usuario</label>
+                    <div class="imgprofile" (click)="cambiarImg()">
+                        <img class="imgpro" [src]="user.fotoUrl| imagenes | async">
+                        <div class="sobre"><img [src]="'assets/editar.svg'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-20">
+            <div class="col">
+                <div class="card-formulario sombra">
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="subtitulo">Cédula de ciudadanía</label>
+                            <input type="text" class="input" formControlName="cedula">
+                        </div>
+                        <div class="col-4">
+                            <label class="subtitulo">Nombres</label>
+                            <input type="text" class="input" formControlName="nombres">
+                        </div>
+                        <div class="col-4">
+                            <label class="subtitulo">Apellidos</label>
+                            <input type="text" class="input" formControlName="apellidos">
+                        </div>
+                    </div>
+                    <div class="row mt-20">
+                        <div class="col-4">
+                            <label class="subtitulo">Dirección</label>
+                            <input type="text" class="input" formControlName="direccion">
+                        </div>
+                        <div class="col-4">
+                            <label class="subtitulo">Teléfono/celular</label>
+                            <input type="number" class="input" formControlName="telefono">
+                        </div>
+                        <div class="col-4">
+                            <label class="subtitulo">E-mail</label>
+                            <input type="text" class="input" formControlName="email">
+                        </div>
+                    </div>
+                    <div class="row mt-20">
+                        <div class="content-buttons">
+                            <button class="sombra bg-b" [disabled]="!form.valid" type="submit"><img [src]="'assets/guardar.svg'">Guardar todo</button>
+                            <div class="separador"></div>
+                            <button class="sombra bg-y" (click)="cambiarPassword()" type="button"><img [src]="'assets/llave.svg'">Cambiar contraseña</button>
+                            <div class="separador"></div>
+                            <button class="sombra bg-r" type="button" [routerLink]="'/secretaria/buscar-conductores'">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

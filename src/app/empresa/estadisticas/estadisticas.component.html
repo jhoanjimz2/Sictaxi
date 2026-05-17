@@ -1,0 +1,51 @@
+<div class="contenedor-70">
+    <div class="grid">
+        <div class="row">
+            <div class="col-2-4">
+                <app-card-simple
+                    [titulo]="'Taxis Registrados'"
+                    [data]="dataCards.taxisRegistrados"
+                    [route]="'/empresa/taxis-registrados'"
+                    [updating]="false"
+                />
+            </div>
+            <div class="col-2-4">
+                <app-card-simple
+                    [titulo]="'Documentos vencidos'"
+                    [data]="totalDocumentosVencidos"
+                    [route]="'/empresa/documentos-vencidos'"
+                    [updating]="false"
+                />
+            </div>
+            <div class="col-2-4">
+                <app-card-simple
+                    [titulo]="'Próximos en vencerse'"
+                    [data]="dataCards.alertasDeVencimiento"
+                    [route]="'/empresa/proximos-vencerse'"
+                    [updating]="false"
+                />
+            </div>
+            <div class="col-2-4">
+                <app-card-simple
+                    [titulo]="'Conductores registrados'"
+                    [data]="dataCards.taxistasRegistrados"
+                    [route]="'/empresa/taxistas-registrados'"
+                    [updating]="false"
+                />
+            </div>
+            <div class="col-2-4">
+                <app-card-simple
+                    [titulo]="'Matrículas canceladas'"
+                    [data]="dataCards.vehiculoChatarrizados"
+                    [route]="'/empresa/matriculas-canceladas'"
+                    [updating]="false"
+                />
+            </div>
+        </div>
+        <div class="row mt-20">
+            <div class="col">
+                <app-card-reporte-calificaciones/>
+            </div>
+        </div>
+    </div>
+</div>

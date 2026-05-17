@@ -1,0 +1,53 @@
+<div class="contenedor">
+    <div class="row mt-20">
+      <app-barra-busqueda [placeholder]="'Buscar por placa o cédula'" (searchEvent)="buscar($event)"/>
+    </div>
+    <div class="row mt-40">
+        <div class="col-6">
+            <label class="titulo">Documentos vencidos -&nbsp;</label>
+            <label class="subtitulo" [@fadeInOut] *ngIf="!verVehiculos">Conductores</label>
+            <label class="subtitulo" [@fadeInOut] *ngIf="verVehiculos">Vehiculos</label>
+        </div>
+        <div class="col-6 flex-end">
+          <mat-form-field appearance="fill">
+            <mat-select
+                [placeholder]="'Selecciona una opción'"
+                [(value)]="verVehiculos"
+                (selectionChange)="onViewChange()">
+              <mat-option class="opcionSelect" [value]="true">Ver Vehículos</mat-option>
+              <mat-option class="opcionSelect" [value]="false">Ver Conductores</mat-option>
+            </mat-select>
+           </mat-form-field>
+          <app-export-excel (export)="exportar()"/>
+        </div>
+    </div>
+
+
+    <div class="separador-cards"></div>
+    <ng-container *ngIf="!verVehiculos">
+      <app-card-conductor
+        [conductores]="conductoresFiltrados"
+        [page] = "paginaActual"
+        [@fadeInOut]>
+      </app-card-conductor>
+    </ng-container>
+    <ng-container *ngIf="verVehiculos">
+      <app-card-vehiculo
+        [vehiculos]="vehiculosFiltrados"
+        [page] = "paginaActual"
+        [@fadeInOut]>
+      </app-card-vehiculo>
+    </ng-container>
+    <div class="separador-cards"></div>
+    <div class="separador-cards"></div>
+
+    <div class="footer-paginacion">
+      <app-paginacion
+      *ngIf="totalPages"
+      [cantidad]="totalPages"
+      [focus]="paginaActual"
+      (paginar)="pagina($event)">
+      </app-paginacion>
+    </div>
+
+</div>

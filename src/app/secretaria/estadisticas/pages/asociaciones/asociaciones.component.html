@@ -1,0 +1,40 @@
+<div class="contenedor-20">
+    <div class="row  pl-50">
+        <div class="col-6 flex-start">
+            <label class="title">Asociaciones</label>
+        </div>
+        <div class="col-6 flex-end">
+            <button class="opc" (click)="editar(null)"> Nueva Asociación <img [src]="'assets/empresa.svg'"></button>
+            <app-export-excel (export)="exportar()"/>
+        </div>
+    </div>
+    <div class="row pb-80">
+        <div class="col-6 mt-20" *ngFor="let asociacion of asociaciones; let i = index">
+            <div class="card-empresa">
+                <div class="imagen">
+                    <img [src]="'assets/sidebar/company.svg'">
+                </div>
+                <div class="text">
+                    <label class="titulo">{{asociacion.nombreAsociacion}}</label>
+                    <label class="incisos">NIT      : <span>{{asociacion.nit}}</span></label>
+                    <label class="incisos">Direccion: <span>{{asociacion.direccion}}</span></label>
+                    <label class="incisos">Telefono : <span>{{asociacion.telefono}}</span></label>
+                    <label class="incisos">email    : <span>{{asociacion.email}}</span></label>
+                </div>
+                <div class="botones">
+                    <button class="b1" (click)="editar(asociacion.id)">Editar <img [src]="'assets/editar.svg'"></button>
+                    <div></div>
+                    <button class="b2" (click)="eliminar(asociacion.id)">Eliminar <img [src]="'assets/eliminar.svg'"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-paginacion ">
+        <app-paginacion
+            *ngIf="totalPages"
+            [cantidad]="totalPages"
+            [focus]="paginaActual"
+            (paginar)="pagina($event)">
+        </app-paginacion>
+    </div>
+</div>

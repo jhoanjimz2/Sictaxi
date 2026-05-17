@@ -1,0 +1,46 @@
+<form (ngSubmit)="guardar()" [formGroup]="form" autocomplete="off">
+    <div class="contenedor">
+        <div class="row">
+            <div class="col">
+                <label class="titulo">
+                    {{ !!data.id ? 'Editar Asociación' : 'Crear Asociación' }}
+                </label>
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col-6">
+                <label class="subtitulo">Nit</label>
+                <input type="text" class="input" formControlName="nit">
+            </div>
+            <div class="col-6">
+                <label class="subtitulo">Razón social</label>
+                <input type="text" class="input" formControlName="razon">
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col-6">
+                <label class="subtitulo">Dirección</label>
+                <input type="text" class="input" formControlName="direccion">
+            </div>
+            <div class="col-6">
+                <label class="subtitulo">Teléfono/celular</label>
+                <input type="text" class="input" formControlName="telefono">
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col-6">
+                <label class="subtitulo">E-mail</label>
+                <input type="email" class="input" formControlName="email">
+            </div>
+            <div class="col-6">
+            </div>
+        </div>
+        <div class="row mt-30">
+            <div class="col flex-end">
+                <button class="b-b" [disabled]="!form.valid" type="submit"><img [src]="'assets/guardar.svg'">Guardar</button> 
+                <div class="w-20"></div> 
+                <button class="b-w" mat-dialog-close>Cancelar</button>
+            </div>
+        </div>
+    </div>    
+</form>

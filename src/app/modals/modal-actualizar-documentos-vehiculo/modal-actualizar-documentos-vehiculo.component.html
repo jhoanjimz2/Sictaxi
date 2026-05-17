@@ -1,0 +1,226 @@
+<div class="modal-actualizar-documentos">
+  <div class="header-modal-actualizar-documentos row">
+    <label>Actualizar documentos del Vehiculo</label>
+  </div>
+
+  <div class="separador"></div>
+
+  <form (ngSubmit)="actualizar()" [formGroup]="formulario">
+
+
+    <div class="row" [hidden]="data.type != 'TARJETA_OPERACION'">
+      <div class="col-4">
+        <label class="label-input">Tarjeta Operación | Fecha de exp.</label>
+        <input
+          class="input-normal"
+          formControlName="F_E_TARJETA_OPERACION"
+          type="text"
+          [placeholder]="'YYYY/MM/DD'"
+          [mask]="'9999/99/99'"
+          [dropSpecialCharacters]="false"
+        >
+        <div *ngIf="formulario.get('F_E_TARJETA_OPERACION')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">       {{ errors?.['required']        }}</div>
+          <div *ngIf="errors?.['invalidDate']">    {{ errors?.['invalidDate']     }}</div>
+          <div *ngIf="errors?.['invalidFormat']">  {{ errors?.['invalidFormat']   }}</div>
+          <div *ngIf="errors?.['dateGreaterThan']">{{ errors?.['dateGreaterThan'] }}</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <label class="label-input">Tarjeta Operación | Fecha de venc.</label>
+        <input
+          class="input-normal"
+          formControlName="F_V_TARJETA_OPERACION"
+          type="text"
+          [placeholder]="'YYYY/MM/DD'"
+          [mask]="'9999/99/99'"
+          [dropSpecialCharacters]="false"
+        >
+        <div *ngIf="formulario.get('F_V_TARJETA_OPERACION')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">       {{ errors?.['required'] }}       </div>
+          <div *ngIf="errors?.['invalidFormat']">  {{ errors?.['invalidFormat'] }}  </div>
+          <div *ngIf="errors?.['invalidDate']">    {{ errors?.['invalidDate'] }}    </div>
+          <div *ngIf="errors?.['dateExpired']">    {{ errors?.['dateExpired'] }}    </div>
+          <div *ngIf="errors?.['dateGreaterThan']">{{ errors?.['dateGreaterThan'] }}</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <label class="label-input">Tarjeta Operación | Numero</label>
+        <input type="text" class="input-normal" formControlName="N_TARJETA_OPERACION">
+        <div *ngIf="formulario.get('N_TARJETA_OPERACION')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">{{ errors?.['required'] }}</div>
+          <div *ngIf="errors?.['pattern']">{{ errors?.['pattern'] }}</div>
+        </div>
+      </div>
+      <div class="separador"></div>
+    </div>
+
+
+    <div class="row" [hidden]="data.type != 'SOAT'">
+      <div class="col-4">
+        <label class="label-input">SOAT | Fecha de exp.</label>
+        <input
+          class="input-normal"
+          formControlName="F_E_SOAT"
+          type="text"
+          [placeholder]="'YYYY/MM/DD'"
+          [mask]="'9999/99/99'"
+          [dropSpecialCharacters]="false"
+        >
+        <div *ngIf="formulario.get('F_E_SOAT')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">       {{ errors?.['required']        }}</div>
+          <div *ngIf="errors?.['invalidDate']">    {{ errors?.['invalidDate']     }}</div>
+          <div *ngIf="errors?.['invalidFormat']">  {{ errors?.['invalidFormat']   }}</div>
+          <div *ngIf="errors?.['dateGreaterThan']">{{ errors?.['dateGreaterThan'] }}</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <label class="label-input">SOAT | Fecha de venc.</label>
+        <input
+          class="input-normal"
+          formControlName="F_V_SOAT"
+          type="text"
+          [placeholder]="'YYYY/MM/DD'"
+          [mask]="'9999/99/99'"
+          [dropSpecialCharacters]="false"
+        >
+        <div *ngIf="formulario.get('F_V_SOAT')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">       {{ errors?.['required'] }}       </div>
+          <div *ngIf="errors?.['invalidFormat']">  {{ errors?.['invalidFormat'] }}  </div>
+          <div *ngIf="errors?.['invalidDate']">    {{ errors?.['invalidDate'] }}    </div>
+          <div *ngIf="errors?.['dateExpired']">    {{ errors?.['dateExpired'] }}    </div>
+          <div *ngIf="errors?.['dateGreaterThan']">{{ errors?.['dateGreaterThan'] }}</div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <label class="label-input">SOAT | Numero</label>
+        <input type="text" class="input-normal" formControlName="N_SOAT">
+        <div *ngIf="formulario.get('N_SOAT')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">{{ errors?.['required'] }}</div>
+          <div *ngIf="errors?.['pattern']">{{ errors?.['pattern'] }}</div>
+        </div>
+      </div>
+      <div class="separador"></div>
+    </div>
+
+
+    <div class="row" [hidden]="data.type != 'TECNOMECANICA'">
+      <div class="col-4">
+        <label class="label-input">Tecnomecánica | Fecha de exp.</label>
+        <input
+          class="input-normal"
+          formControlName="F_E_TECNOMECANICA"
+          type="text"
+          [placeholder]="'YYYY/MM/DD'"
+          [mask]="'9999/99/99'"
+          [dropSpecialCharacters]="false"
+        >
+        <div *ngIf="formulario.get('F_E_TECNOMECANICA')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">{{ errors?.['required'] }}</div>
+          <div *ngIf="errors?.['invalidDate']">{{ errors?.['invalidDate'] }}</div>
+          <div *ngIf="errors?.['dateGreaterThan']">{{ errors?.['dateGreaterThan'] }}</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <label class="label-input">Tecnomecánica | Fecha de venc.</label>
+        <input
+          class="input-normal"
+          formControlName="F_V_TECNOMECANICA"
+          type="text"
+          [placeholder]="'YYYY/MM/DD'"
+          [mask]="'9999/99/99'"
+          [dropSpecialCharacters]="false"
+        >
+        <div *ngIf="formulario.get('F_V_TECNOMECANICA')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">       {{ errors?.['required'] }}       </div>
+          <div *ngIf="errors?.['invalidFormat']">  {{ errors?.['invalidFormat'] }}  </div>
+          <div *ngIf="errors?.['invalidDate']">    {{ errors?.['invalidDate'] }}    </div>
+          <div *ngIf="errors?.['dateExpired']">    {{ errors?.['dateExpired'] }}    </div>
+          <div *ngIf="errors?.['dateGreaterThan']">{{ errors?.['dateGreaterThan'] }}</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <label class="label-input">Tecnomecánica | Numero</label>
+        <input type="text" class="input-normal" formControlName="N_TECNOMECANICA">
+        <div *ngIf="formulario.get('N_TECNOMECANICA')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">{{ errors?.['required'] }}</div>
+          <div *ngIf="errors?.['pattern']">{{ errors?.['pattern'] }}</div>
+        </div>
+      </div>
+      <div class="separador"></div>
+    </div>
+
+
+    <div class="row" [hidden]="data.type != 'RCC'">
+      <div class="col-6">
+        <label class="label-input">RCC | Fecha de venc.</label>
+        <input
+          class="input-normal"
+          formControlName="F_V_RCC"
+          type="text"
+          [placeholder]="'YYYY/MM/DD'"
+          [mask]="'9999/99/99'"
+          [dropSpecialCharacters]="false"
+        >
+        <div *ngIf="formulario.get('F_V_RCC')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">       {{ errors?.['required'] }}       </div>
+          <div *ngIf="errors?.['invalidFormat']">  {{ errors?.['invalidFormat'] }}  </div>
+          <div *ngIf="errors?.['invalidDate']">    {{ errors?.['invalidDate'] }}    </div>
+          <div *ngIf="errors?.['dateExpired']">    {{ errors?.['dateExpired'] }}    </div>
+          <div *ngIf="errors?.['dateGreaterThan']">{{ errors?.['dateGreaterThan'] }}</div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <label class="label-input">RCC | Numero</label>
+        <input type="text" class="input-normal" formControlName="N_RCC">
+        <div *ngIf="formulario.get('N_RCC')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">{{ errors?.['required'] }}</div>
+          <div *ngIf="errors?.['pattern']">{{ errors?.['pattern'] }}</div>
+        </div>
+      </div>
+      <div class="separador"></div>
+    </div>
+
+
+
+    <div class="row" [hidden]="data.type != 'RCE'">
+
+      <div class="col-6">
+        <label class="label-input">RCE | Fecha de venc.</label>
+        <input
+          class="input-normal"
+          formControlName="F_V_RCE"
+          type="text"
+          [placeholder]="'YYYY/MM/DD'"
+          [mask]="'9999/99/99'"
+          [dropSpecialCharacters]="false"
+        >
+        <div *ngIf="formulario.get('F_V_RCE')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">       {{ errors?.['required'] }}       </div>
+          <div *ngIf="errors?.['invalidFormat']">  {{ errors?.['invalidFormat'] }}  </div>
+          <div *ngIf="errors?.['invalidDate']">    {{ errors?.['invalidDate'] }}    </div>
+          <div *ngIf="errors?.['dateExpired']">    {{ errors?.['dateExpired'] }}    </div>
+          <div *ngIf="errors?.['dateGreaterThan']">{{ errors?.['dateGreaterThan'] }}</div>
+        </div>
+      </div>
+      <div class="col-6">
+        <label class="label-input">RCE | Numero</label>
+        <input type="text" class="input-normal" formControlName="N_RCE">
+        <div *ngIf="formulario.get('N_RCE')?.errors as errors" class="label-error">
+          <div *ngIf="errors?.['required']">{{ errors?.['required'] }}</div>
+          <div *ngIf="errors?.['pattern']">{{ errors?.['pattern'] }}</div>
+        </div>
+      </div>
+      <div class="separador"></div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-right">
+        <button class="button-opc-g" type="submit" [disabled]="formulario.invalid">Guardar</button>&nbsp;&nbsp;
+        <button class="button-opc-c" type="button" (click)="close()">Cancelar</button>
+      </div>
+    </div>
+
+  </form>
+</div>

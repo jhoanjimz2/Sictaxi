@@ -1,0 +1,69 @@
+<div>
+    <div class="row">
+        <div class="col">
+            <app-barra-busqueda [placeholder]="'Buscar placa'" (searchEvent)="buscando($event)"/>
+        </div>
+    </div>
+    <div class="row mtb-10">
+        <div class="col-4 flex-center">
+            <app-select-neg (select)="selectComentN($event)"/>
+        </div>
+        <div class="col-4 flex-center">
+            <app-select-pos (select)="selectComentP($event)"/>
+        </div>
+        <div class="col-4 flex-center">
+            <app-datetime (select)="selectDateP($event); selectDateN($event)"/>
+        </div>
+    </div>
+    <div class="row mtb-5">
+        <div class="col"><label class="title">Reporte de calificaciones</label></div>
+        <div class="col flex-end"><app-export-excel *ngIf="user?.rol == 'Secretaria'" (export)="export()"/></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card-quejas">
+                <div class="row">
+                    <div class="col-6">
+                        <app-bar-hoy-semana-mes
+                            (select)="selectDateN($event)"
+                            [cargando]="cargandoN"
+                            [titulo]="'Taxistas con más quejas recurrentes'"
+                        />
+                    </div>
+                    <div class="col-6">
+                        <app-bar-hoy-semana-mes
+                            (select)="selectDateP($event)"
+                            [cargando]="cargandoP"
+                            [titulo]="'Taxistas con mejores calificaciones'"
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <app-list-taxistas
+                            [cargando]="cargandoN"
+                            [taxistas]="taxistasN"
+                            [search]="buscar"
+                            [evento]="true"
+                            [fechaInicialP]="fechaInicialP"
+                            [fechaFinalP]="fechaFinalP"
+                            [fechaInicialN]="fechaInicialN"
+                            [fechaFinalN]="fechaFinalN"
+                        />
+                    </div>
+                    <div class="col-6">
+                        <app-list-taxistas
+                            [cargando]="cargandoP"
+                            [taxistas]="taxistasP"
+                            [search]="buscar"
+                            [fechaInicialP]="fechaInicialP"
+                            [fechaFinalP]="fechaFinalP"
+                            [fechaInicialN]="fechaInicialN"
+                            [fechaFinalN]="fechaFinalN"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill">
+    <mat-date-range-input [formGroup]="range" [rangePicker]="picker" [max]="maxDate">
+      <input matStartDate formControlName="start" placeholder="00/00/0000">
+      <input matEndDate formControlName="end" placeholder="00/00/0000">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker (closed)="selectDate()"></mat-date-range-picker>
+</mat-form-field>

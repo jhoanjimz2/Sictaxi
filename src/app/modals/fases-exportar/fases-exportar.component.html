@@ -1,0 +1,24 @@
+<div class="contenedor">
+    <div class="row">
+        <div class="col-10">
+            <label class="titulo">Exportar excel documentos vencidos</label>
+        </div>
+        <div class="col-2 flex-end">
+            <i class="bi bi-x-circle-fill person-close" mat-dialog-close></i>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <label class="subtitulo">El archivo de excel es muy extenso, por lo cual se ha dividido en 4 partes</label>
+        </div>
+    </div>
+    <div class="row mt-25">
+        <div class="col">
+            <button class="b-w" (click)="exportar(1)">Parte 1<img [src]="'assets/excel.svg'"></button>
+            <button class="b-w" (click)="exportar(2)">Parte 2<img [src]="'assets/excel.svg'"></button>
+            <button class="b-w" (click)="exportar(3)">Parte 3<img [src]="'assets/excel.svg'"></button>
+            <button class="b-w" (click)="exportar(4)">Parte 4<img [src]="'assets/excel.svg'"></button>
+        </div>
+    </div>
+</div>
+

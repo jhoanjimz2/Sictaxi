@@ -1,0 +1,97 @@
+<div class="min-h-screen w-full flex items-center justify-center">
+  <section class="w-full">
+    <!-- Encabezado principal -->
+    <header class="text-center mb-4 flex flex-col">
+      <label class="text-[25px] font-bold text-black">
+        🚖 Planes de Suscripción - Tu Flota, Tu Control 🚖
+      </label>
+      <label class="text-[16px] font-bold text-black">
+        Activa tu empresa con Sictaxi y simplifica la gestión de taxis y conductores
+      </label>
+    </header>
+
+
+    <a href="/" class="fixed top-6 right-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-xl transform transition-colors duration-300 hover:from-purple-600 hover:to-blue-500">
+      ⬅ Volver
+    </a>
+
+    <!-- Controles de facturación -->
+    <div class="relative flex justify-center items-center space-x-3 mb-8 p-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full w-full max-w-[38rem] mx-auto">
+      <div class="bg-white rounded-full flex space-x-3 p-2 w-full">
+        <button (click)="isAnnual = false"
+                [ngClass]="{
+                  'bg-gradient-to-r from-blue-500 to-purple-600 text-white': !isAnnual,
+                  'bg-white text-black border border-gray-300': isAnnual
+                }"
+                class="px-4 py-2 rounded-full font-semibold transition-transform duration-500 ease-in-out hover:scale-110 hover:shadow-xl active:scale-95 border-2 border-transparent bg-clip-border w-1/2">
+          Suscripción Mensual
+        </button>
+
+        <button (click)="isAnnual = true"
+                [ngClass]="{
+                  'bg-gradient-to-r from-blue-500 to-purple-600 text-white': isAnnual,
+                  'bg-white text-black border border-gray-300': !isAnnual
+                }"
+                class="relative px-4 py-2 rounded-full font-semibold transition-transform duration-500 ease-in-out hover:scale-110 hover:shadow-xl active:scale-95 border-2 border-transparent bg-clip-border w-1/2">
+          Suscripción Anual
+        </button>
+      </div>
+      <label class="text-center absolute top-[50%] translate-y-[-50%] translate-x-[120%] right-0">
+        <span class="text-green-700 bg-green-200 p-2 rounded-[5px] text-[14px] font-bold">10% descuento</span>
+      </label>
+    </div>
+
+    <!-- Sección de planes -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <article
+        *ngFor="let plan of plans"
+        (click)="selectPlan(plan)"
+        class="relative w-full rounded-xl shadow-md flex flex-col transition-transform transform hover:scale-105 hover:shadow-lg duration-300 cursor-pointer bg-white bg-clip-border border border-transparent bg-gradient-to-r from-blue-500 to-purple-600 p-1">
+
+        <!-- Etiqueta de descuento -->
+        <div *ngIf="isAnnual && plan.annual_price !== 0 && plan.annual_price"
+            class="absolute top-2 right-2 bg-red-500 text-white text-sm font-bold py-1 px-3 rounded-full">
+          10% Descuento
+        </div>
+
+        <div class="bg-white rounded-xl p-5 !pb-[90px] h-full">
+          <img *ngIf="!plan.can_apply"
+              src="assets/limit.png"
+              alt="Límite superado"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] opacity-80 pointer-events-none z-10" />
+
+          <h3 class="text-2xl font-bold text-gray-900 truncate" title="{{ plan.name }}">
+            {{ plan.name }}
+          </h3>
+
+          <div class="mt-4 flex items-baseline">
+            <span class="text-1.25rem font-extrabold text-gray-900">
+              {{ (isAnnual ? plan.annual_price : plan.monthly_price) === 0 ? 'FREE' : (isAnnual
+                ? (plan.annual_price | currency:'COP ':'symbol':'1.0-0')
+                : (plan.monthly_price | currency:'COP ':'symbol':'1.0-0')) }}
+            </span>
+            <span class="text-0.75rem text-gray-500 ml-1">
+              / {{ isAnnual ? 'Anual' : 'Mensual' }}
+            </span>
+          </div>
+
+          <ul class="mt-4 space-y-1.5 text-gray-700 text-0.875rem">
+            <li *ngFor="let item of plan.descriptionArray" class="flex items-start">
+              <span class="w-4 h-4 text-green-500 !important mt-0.5 mr-2 shrink-0">✔</span>
+              {{ item }}
+            </li>
+          </ul>
+
+          <button
+            class="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-xl transform transition-colors duration-1000 ease-in-out hover:from-purple-600 hover:to-blue-500 absolute left-1/2 bottom-4 -translate-x-1/2">
+            Suscribirse
+          </button>
+        </div>
+      </article>
+    </section>
+
+
+
+
+  </section>
+</div>

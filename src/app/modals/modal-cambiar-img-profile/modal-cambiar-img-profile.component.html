@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col center">
+            <input type="file" (change)="addimg($event)" accept="image/png, image/jpeg" #myInput disabled>
+            <img [src]="img | imagenes | async" class="imgprofile" *ngIf="img">
+            <img *ngIf="!img && user?.fotoUrl" [src]="user.fotoUrl | imagenes | async" class="imgprofile" />
+        </div>
+    </div>
+    <div class="row pt-20" *ngIf="!img">
+        <div class="col center">
+            <button (click)="abrirImg()">Subir desde pc</button>
+        </div>
+        <div class="col center">
+            <button (click)="tomarFoto()">Tomar foto</button>
+        </div>
+    </div>
+    <div class="row pt-20" *ngIf="img">
+        <div class="col center">
+            <button (click)="guardarImg()">Guardar</button>
+        </div>
+    </div>
+</div>

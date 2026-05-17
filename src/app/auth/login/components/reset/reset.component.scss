@@ -1,0 +1,55 @@
+.back {
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    i {
+        margin-right: 5px;
+        font-size: 20px;
+    }
+}
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+        width: 300px;
+        height: 40px;
+        border-radius: 20px;
+        border: 2px solid #00000050;
+        background-color: transparent;
+        text-align: center;
+        margin-right: 20px;
+    }
+    button {
+        width: 300px;
+        height: 40px;
+        border-radius: 25px;
+        border: none;
+        background-color: #8DD7F7;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+.off {
+    font-weight: bold;
+    color: black;
+    font-size: 0px;
+    margin-bottom: 0px;
+    transition: all 0.2s ease-in-out;
+}
+.on {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease-in-out;
+}

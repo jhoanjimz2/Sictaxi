@@ -1,0 +1,57 @@
+.modal-actualizar-documentos {
+  padding: 40px;
+  width: 100%;
+}
+.header-modal-actualizar-documentos {
+  width: 100%;
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+}
+
+.label-input {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+.col-right {
+  text-align: end;
+}
+.button-opc-g {
+  padding: 5px 30px;
+  background-color: #8DD7F7;
+  border: none;
+  border: solid 2px #8DD7F7;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+.button-opc-c {
+  padding: 5px 30px;
+  background-color: #fff;
+  color: black;
+  border: solid 2px black;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+.separador {
+  height: 30px;
+  width: 100%;
+}
+
+.input-normal {
+  width: 100%;
+  color: black;
+  background-color: white;
+  border: 2px solid #000;
+  padding-left: 20px;
+  border-radius: 20px;
+  height: 30px;
+  font-size: 18px;
+}

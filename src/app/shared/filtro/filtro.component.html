@@ -1,0 +1,10 @@
+<div class="centrar">
+  <mat-form-field appearance="fill">
+    <mat-select placeholder="{{ (selectedEmpresaLocal == null) ? 'Todas' : selectedEmpresaLocal.nombreEmpresa}}" [(value)]="selectedEmpresaLocal" (selectionChange)="onEmpresaChange($event.value)">
+      <mat-option [value]="null">Todas</mat-option>
+      <mat-option *ngFor="let empresa of empresas" [value]="empresa">
+        {{ empresa.nombreEmpresa }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

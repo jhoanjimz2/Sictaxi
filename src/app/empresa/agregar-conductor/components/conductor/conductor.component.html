@@ -1,0 +1,264 @@
+<form (ngSubmit)="next()" [formGroup]="form" autocomplete="off">
+  <div class="card-formulario sombra">
+    <div class="flexible">
+        <div class="wid-350">
+            <div>
+                <input type="file" (change)="addimg($event)" accept="image/png, image/jpeg" #myInput disabled>
+                <img [src]="img | imagenes | async" class="imgprofile">
+            </div>
+            <br>
+            <div *ngIf="!img" class="label-error center">
+              <p>La imagen es necesaria</p>
+            </div>
+            <button class="sombra bg-b" (click)="tomarFoto()" type="button"><i class="bi bi-camera"></i>Tomar una foto</button>
+            <br>
+            <button class="sombra bg-b" (click)="abrirImg()" type="button"><img [src]="'assets/subirfoto.svg'">Subir foto</button>
+        </div>
+        <div class="w-rest">
+            <div class="row">
+
+                <div class="col-4">
+                    <label class="subtitulo">Cédula/Licencia</label>
+                    <input type="number" class="input" formControlName="cedula" (keyup)="debounce()">
+                    <div *ngIf="form.get('cedula')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Nombres</label>
+                    <input type="text" class="input" formControlName="nombres">
+                    <div *ngIf="form.get('nombres')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Apellidos</label>
+                    <input type="text" class="input" formControlName="apellidos" >
+                    <div *ngIf="form.get('apellidos')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Fecha de nacimiento</label>
+                    <input
+                        type="text"
+                        class="input"
+                        formControlName="fechaNacimiento"
+                        [placeholder]="'YYYY/MM/DD'"
+                        [mask]="'9999/99/99'"
+                        [dropSpecialCharacters]="false"
+                    >
+                    <div *ngIf="form.get('fechaNacimiento')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                      <p *ngIf="errors?.['invalidDateFormat']">{{ errors?.['invalidDateFormat'] }}</p>
+                      <p *ngIf="errors?.['invalidDate']">{{ errors?.['invalidDate'] }}</p>
+                      <p *ngIf="errors?.['dateNotGreaterThanToday']">{{ errors?.['dateNotGreaterThanToday'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Grupo sanguineo</label>
+                    <select class="input" formControlName="tipoSangre" >
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="O">O</option>
+                        <option value="AB">AB</option>
+                    </select>
+                    <div *ngIf="form.get('tipoSangre')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">RH</label>
+                    <select class="input" formControlName="rh" >
+                      <option value="Positivo">Positivo</option>
+                      <option value="Negativo">Negativo</option>
+                    </select>
+                    <div *ngIf="form.get('rh')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Sexo</label>
+                    <select class="input" formControlName="sexo" >
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                    <div *ngIf="form.get('sexo')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Estado civil</label>
+                    <select class="input" formControlName="estadoCivil" >
+                        <option value="Soltero(a)">Soltero(a)</option>
+                        <option value="Casado(a)">Casado(a)</option>
+                        <option value="Viudo(a)">Viudo(a)</option>
+                        <option value="Divorcido(a)">Divorcido(a)</option>
+                        <option value="Unión libre">Unión libre</option>
+                    </select>
+                    <div *ngIf="form.get('estadoCivil')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Dirección</label>
+                    <input type="text" class="input" formControlName="direccion">
+                    <div *ngIf="form.get('direccion')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Barrio</label>
+                    <input type="text" class="input" formControlName="barrio" >
+                    <div *ngIf="form.get('barrio')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Teléfono/celular</label>
+                    <input type="number" class="input" formControlName="telefono" >
+                    <div *ngIf="form.get('telefono')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">E-mail</label>
+                    <input type="email" class="input" formControlName="email" >
+                    <div *ngIf="form.get('email')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                      <p *ngIf="errors?.['email']">{{ errors?.['email'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Categoría licencia</label>
+                    <select class="input" formControlName="categoriaPase" >
+                        <option value="C1">C1</option>
+                        <option value="C2">C2</option>
+                        <option value="C3">C3</option>
+                    </select>
+                    <div *ngIf="form.get('categoriaPase')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Fecha de exp. licencia</label>
+                    <input
+                        type="text"
+                        class="input"
+                        [placeholder]="'YYYY/MM/DD'"
+                        [mask]="'9999/99/99'"
+                        formControlName="fechaExpedicionLicenciaConduccion"
+                        [dropSpecialCharacters]="false"
+                    >
+                    <div *ngIf="form.get('fechaExpedicionLicenciaConduccion')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                      <p *ngIf="errors?.['invalidDateFormat']">{{ errors?.['invalidDateFormat'] }}</p>
+                      <p *ngIf="errors?.['invalidDate']">{{ errors?.['invalidDate'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Fecha de venc. licencia</label>
+                    <input
+                        type="text"
+                        class="input"
+                        [placeholder]="'YYYY/MM/DD'"
+                        [mask]="'9999/99/99'"
+                        formControlName="fechaLicenciaConduccion"
+                        [dropSpecialCharacters]="false"
+                    >
+                    <div *ngIf="form.get('fechaLicenciaConduccion')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                      <p *ngIf="errors?.['invalidDateFormat']">{{ errors?.['invalidDateFormat'] }}</p>
+                      <p *ngIf="errors?.['invalidDate']">{{ errors?.['invalidDate'] }}</p>
+                      <p *ngIf="errors?.['dateNotGreaterThanToday']">{{ errors?.['dateNotGreaterThanToday'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Fondo de pensiones</label>
+                    <select class="input" formControlName="idAfp" >
+                        <option *ngFor="let item of AFPs" value={{item.id}}>{{item.nombre}}</option>
+                    </select>
+                    <div *ngIf="form.get('idAfp')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">ARL</label>
+                    <select class="input" formControlName="idArl" >
+                        <option *ngFor="let item of ARLs" value={{item.id}}>{{item.nombre}}</option>
+                    </select>
+                    <div *ngIf="form.get('idArl')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">EPS</label>
+                    <select class="input" formControlName="idEps" >
+                        <option *ngFor="let item of EPSs" value={{item.id}}>{{item.nombre}}</option>
+                    </select>
+                    <div *ngIf="form.get('idEps')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <label class="subtitulo">Jornada</label>
+                    <select class="input" formControlName="jornada" >
+                        <option value="Diurna">Diurna</option>
+                        <option value="Nocturna">Nocturna</option>
+                        <option value="Mixta">Mixta</option>
+                    </select>
+                    <div *ngIf="form.get('jornada')?.errors as errors" class="label-error">
+                      <p *ngIf="errors?.['required']">{{ errors?.['required'] }}</p>
+                    </div>
+                </div>
+
+                <div class="col-4"*ngIf="id">
+                    <label class="subtitulo">Número interno/Consecutivo</label>
+                    <input type="number" class="input" formControlName="consecutivo">
+                </div>
+
+                <div class="col-4"*ngIf="id">
+                    <label class="subtitulo">Fecha de registro</label>
+                    <input
+                        type="text"
+                        class="input"
+                        [mask]="'9999/99/99'"
+                        [placeholder]="'aaaa/mm/dd'"
+                        formControlName="fechaUltimaRefrendacion"
+                    >
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row mt-20">
+      <div class="col-6"></div>
+      <div class="col-6 end">
+        <button class="sombra bg-b" type="submit" [disabled]="form.invalid || !img"><img [src]="'assets/guardar.svg'">Guardar todo</button>
+        <div class="separador" *ngIf="id"></div>
+        <button class="sombra bg-r" *ngIf="id" type="button" (click)="_refrendar()"><img [src]="'assets/moneda.png'">Refrendar</button>
+        <div class="separador"></div>
+        <button class="sombra bg-r" [routerLink]="'/empresa/buscar-conductores'" type="button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</form>

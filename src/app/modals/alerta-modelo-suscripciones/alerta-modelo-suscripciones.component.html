@@ -1,0 +1,41 @@
+<div class="modal-container">
+  <div class="alert-icon">⚠️</div>
+  <h2 class="title">Aviso Importante: Actualización en las condiciones de uso para la continuidad del servicio.</h2>
+  <p class="message">
+    A partir del
+    <b>jueves 31 de julio de 2025</b>
+    a las
+    <b>12:00 p.m.</b>,
+    el servicio será interrumpido debido a la falta de voluntad institucional para garantizar su sostenibilidad financiera por parte de la
+    <b>
+      Secretaría de Movilidad
+    </b>
+    de la Alcaldía Distrital de Santa Marta.
+  </p>
+  <p class="message">
+    Como alternativa, hemos habilitado un modelo de suscripción privada que permite a su empresa continuar utilizando el sistema sin interrupciones. Si como empresa está Interesada puede renovar su servicio directamente a través de la plataforma.
+  </p>
+  <p class="message">
+    Agradecemos su comprensión y reiteramos que nuestro equipo está disponible para atender cualquier inquietud.
+  </p>
+  <div class="countdown">
+    <div class="time-box">
+      <span class="number">{{ days }}</span>
+      <span class="label">DÍAS</span>
+    </div>
+    <div class="time-box">
+      <span class="number">{{ hours }}</span>
+      <span class="label">HORAS</span>
+    </div>
+    <div class="time-box">
+      <span class="number">{{ minutes }}</span>
+      <span class="label">MINS</span>
+    </div>
+    <div class="time-box">
+      <span class="number">{{ seconds }}</span>
+      <span class="label">SEGS</span>
+    </div>
+  </div>
+
+  <button class="close-btn" (click)="closeDialog()">Suscribírte a un plan</button>
+</div>

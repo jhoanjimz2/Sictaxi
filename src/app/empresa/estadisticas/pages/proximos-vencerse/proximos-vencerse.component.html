@@ -1,0 +1,70 @@
+<div class="contenedor">
+    <div class="row mt-20">
+        <app-barra-busqueda [placeholder]="'Buscar por placa o cédula'" (searchEvent)="buscando($event)"/>
+    </div>
+    <div class="row mt-40">
+        <div class="col-6">
+            <label class="titulo">Proximos en vencerse</label>
+        </div>
+        <div class="col-6 flex-end">
+            <app-export-excel (export)="exportar()"/>
+        </div>
+    </div>
+    <div class="row pb-80">
+        <div class="col-4 mt-20" *ngFor="let taxista of fechasVencida | fechasVencidasEmpresa : buscar">
+            <div class="card-taxista">
+                <div class="w-img"><img [src]="prevImg + taxista.fotoURL| imagenes"></div>
+                <div class="w-tex">
+                    <label class="cardtitulo">{{taxista.nombres + ' ' + taxista.apellidos}}</label><br>
+                    <label class="cardsubtitulo">Empresa: <span>{{taxista.razonSocial}}</span></label><br>
+                    <label class="cardsubtitulo">Cédula: <span>{{taxista.cedula}}</span></label><br>
+                    <label class="cardsubtitulo">Placa: <span>{{taxista.placa}}</span></label><br>
+                    <label class="cardsubtitulo">Licencia: <span>
+                        {{ !taxista.diferencialicencia.toString().includes('-') ? 'En' : '' }}
+                        {{ taxista.diferencialicencia.toString().includes('-') ? 'Hace' : '' }}
+                        {{ taxista.diferencialicencia.toString().includes('-') ? taxista.diferencialicencia.toString().substring(1) : taxista.diferencialicencia }} días</span>
+                        <img [src]="!taxista.diferencialicencia.toString().includes('-') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label><br>
+                    <label class="cardsubtitulo">Tarjeta de operación: <span>
+                        {{ !taxista.diferenciatarjetaO.toString().includes('-') ? 'En' : '' }}
+                        {{ taxista.diferenciatarjetaO.toString().includes('-') ? 'Hace' : '' }}
+                        {{ taxista.diferenciatarjetaO.toString().includes('-') ? taxista.diferenciatarjetaO.toString().substring(1) : taxista.diferenciatarjetaO }} días</span>
+                        <img [src]="!taxista.diferenciatarjetaO.toString().includes('-') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label><br>
+                    <label class="cardsubtitulo">RCC: <span>
+                        {{ !taxista.diferenciaFechaNumeroRCC.toString().includes('-') ? 'En' : '' }}
+                        {{ taxista.diferenciaFechaNumeroRCC.toString().includes('-') ? 'Hace' : '' }}
+                        {{ taxista.diferenciaFechaNumeroRCC.toString().includes('-') ? taxista.diferenciaFechaNumeroRCC.toString().substring(1) : taxista.diferenciaFechaNumeroRCC }} días</span>
+                        <img [src]="!taxista.diferenciaFechaNumeroRCC.toString().includes('-') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label><br>
+                    <label class="cardsubtitulo">RCE: <span>
+                        {{ !taxista.diferenciaFechaNumeroRCE.toString().includes('-') ? 'En' : '' }}
+                        {{ taxista.diferenciaFechaNumeroRCE.toString().includes('-') ? 'Hace' : '' }}
+                        {{ taxista.diferenciaFechaNumeroRCE.toString().includes('-') ? taxista.diferenciaFechaNumeroRCE.toString().substring(1) : taxista.diferenciaFechaNumeroRCE }} días</span>
+                        <img [src]="!taxista.diferenciaFechaNumeroRCE.toString().includes('-') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label><br>
+                    <label class="cardsubtitulo">SOAT: <span>
+                        {{ !taxista.diferenciaFechaNumeroSOAT.toString().includes('-') ? 'En' : '' }}
+                        {{ taxista.diferenciaFechaNumeroSOAT.toString().includes('-') ? 'Hace' : '' }}
+                        {{ taxista.diferenciaFechaNumeroSOAT.toString().includes('-') ? taxista.diferenciaFechaNumeroSOAT.toString().substring(1) : taxista.diferenciaFechaNumeroSOAT }} días</span>
+                        <img [src]="!taxista.diferenciaFechaNumeroSOAT.toString().includes('-') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label><br>
+                    <label class="cardsubtitulo">Tecnicomecánica: <span>
+                        {{ !taxista.diferenciaFechaNumeroTecnomecanica.toString().includes('-') ? 'En' : '' }}
+                        {{ taxista.diferenciaFechaNumeroTecnomecanica.toString().includes('-') ? 'Hace' : '' }}
+                        {{ taxista.diferenciaFechaNumeroTecnomecanica.toString().includes('-') ? taxista.diferenciaFechaNumeroTecnomecanica.toString().substring(1) : taxista.diferenciaFechaNumeroTecnomecanica }} días</span>
+                        <img [src]="!taxista.diferenciaFechaNumeroTecnomecanica.toString().includes('-') ? 'assets/tramitadas.svg' : 'assets/alertas.svg'">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-paginacion ">
+        <app-paginacion
+            *ngIf="totalPages"
+            [cantidad]="totalPages"
+            [focus]="paginaActual"
+            (paginar)="pagina($event)">
+        </app-paginacion>
+    </div>
+</div>

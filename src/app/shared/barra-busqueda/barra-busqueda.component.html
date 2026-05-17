@@ -1,0 +1,10 @@
+<div class="con-search-bar" [formGroup]="searching">
+    <div class="cont-input-incon">
+        <input
+            formControlName="search"
+            [placeholder]="placeholder"
+            (keyup)="debounce()"
+        />
+        <img [src]="'assets/buscar.svg'">
+    </div>
+</div>

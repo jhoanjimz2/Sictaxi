@@ -1,0 +1,9 @@
+<div class="card-simple sombra">
+    <label class="title">{{titulo}}</label>
+    <label class="data" *ngIf="(data || data >= 0) && !updating">{{data}}</label>
+    <mat-spinner class="zoom-5" *ngIf="!data && data != 0 && !updating"></mat-spinner>
+    <div class="animated-icon data" *ngIf="updating">
+      <mat-icon>settings</mat-icon>
+    </div>
+    <button class="button" [routerLink]="[route]">Ver más</button>
+</div>

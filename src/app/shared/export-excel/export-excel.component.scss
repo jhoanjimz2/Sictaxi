@@ -1,0 +1,32 @@
+
+.opc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  width: 13rem;
+  padding: 0px;
+  height: 1.875rem;
+  background-color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0px 10px;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.15);
+  img {
+    width: 1rem;
+    margin-left: 5px;
+  }
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

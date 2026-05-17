@@ -1,0 +1,83 @@
+.contenedor {
+    padding: 15px 20px;
+    height: 100%;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+.titulo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #000;
+    margin-left: 20px;
+}
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.card-taxista {
+    width: 100%;
+    background-color: white;
+    border-radius: 25px;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+}
+.img {
+    width: 90px;
+    padding-right: 20px;
+    padding-left: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 40px;
+    }
+}
+.texts {
+    width: calc(50% - 145px);
+    line-height: 1;
+    label {
+        font-size: 12px;
+        font-weight: bold;
+        color: #000;
+        span {
+            color: #00000070;
+        }
+    }
+}
+.boton {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .cancelarMatricula {
+        width: 160px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 25px;
+        background-color: white;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s ease-in-out;
+        img {
+            width: 40px;
+            margin-right: 10px;
+        }
+        div {
+            line-height: 1;
+            font-size: 12px;
+        }
+    }
+}
+.cancelarMatricula:hover {
+    transform: translateY(-3px);
+    background-color: #FFF25C !important
+}

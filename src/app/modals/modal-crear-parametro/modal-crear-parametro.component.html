@@ -1,0 +1,33 @@
+<div class="contenedor">
+    <div class="row">
+        <div class="col">
+            <label class="titulo">
+                {{ (data.id) ? 'Editar' : 'Nueva'  }}
+                {{ (data.action == 'EPS') ? 'EPS' : undefined  }}
+                {{ (data.action == 'ARL') ? 'ARL' : undefined  }}
+                {{ (data.action == 'AFP') ? 'AFP' : undefined  }}
+                {{ (data.action == 'ASE') ? 'Aseguradora' : undefined  }}
+                {{ (data.action == 'MAR') ? 'Marca' : undefined  }}
+            </label>
+        </div>
+    </div>
+    <div class="row mt-10">
+        <div class="col-6">
+            <label class="subtitulo">
+                {{ (data.action == 'EPS') ? 'EPS' : undefined  }}
+                {{ (data.action == 'ARL') ? 'ARL' : undefined  }}
+                {{ (data.action == 'AFP') ? 'AFP' : undefined  }}
+                {{ (data.action == 'ASE') ? 'Aseguradora' : undefined  }}
+                {{ (data.action == 'MAR') ? 'Marca' : undefined  }}
+            </label>
+            <input type="text" class="input" [(ngModel)]="data.texto" placeholder="Ingresa el nombre"/>
+        </div>
+    </div>
+    <div class="row mt-30">
+        <div class="col flex-end">
+            <button class="b-b" (click)="guardar()" [disabled]="data.texto.length < 1"><img [src]="'assets/guardar.svg'">Guardar</button> 
+            <div class="w-20"></div> 
+            <button class="b-w" mat-dialog-close type="button">Cancelar</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+.contenedor {
+    padding: 15px 20px;
+    height: 100%;
+}
+.card-header {
+    width: 100%;
+    padding: 15px 50px;
+    border-radius: 25px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.titulo {
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.card-formulario {
+    width: 100%;
+    padding: 30px;
+    background-color: white;
+    border-radius: 25px;
+}
+.subtitulo {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    margin-left: 20px;
+}
+.input {
+    width: 100%;
+    background-color: white;
+    border: 2px solid #EFEFEF;
+    padding-left: 20px;
+    border-radius: 20px;
+    height: 28px;
+    font-size: 12px;
+}
+.separador {
+    width: 20px;
+}
+.content-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    padding: 5px 20px;
+    height: 30px;
+    background-color: white;
+    border-radius: 25px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    transition: all 0.2s ease-in-out;
+    img {
+        height: 15px;
+        margin-right: 10px;
+    }
+}
+.bg-b {
+    background-color: #8DD7F7;
+}
+.bg-y {
+    background-color: #FFF25C;
+}
+.imgprofile {
+    cursor: pointer;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0, 0, 0.09, 0.87);
+    .imgpro {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        background-size: cover;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.09); 
+        object-fit: cover;
+    }
+    .sobre {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 99;
+        background-color: #00000050;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            height: 20px;
+        }
+    }
+}
+.imgprofile:hover {
+    transform: translateY(-3px);
+}

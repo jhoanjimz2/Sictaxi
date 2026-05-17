@@ -1,0 +1,81 @@
+<div class="row mt-20">
+    <div class="col">
+        <div class="card-parametros sombra">
+            <div class="row mt-20">
+                <div class="col-4">
+                    <label class="subtitulo">EPS</label>
+                    <select type="text" class="input" [(ngModel)]="formulario.EPS">
+                        <option [value]=""></option>
+                        <option *ngFor="let eps of EPSs" [value]="eps.id">{{eps.nombre}}</option>
+                    </select>
+                    <app-edit-add-delete 
+                        [action]="'EPS'" 
+                        [id]="formulario.EPS"
+                        [texto]="EPS"
+                        (edit)="editar($event)"
+                        (delete)="eliminar($event)"
+                    />
+                </div>
+                <div class="col-4">
+                    <label class="subtitulo">ARL</label>
+                    <select type="text" class="input" [(ngModel)]="formulario.ARL">
+                        <option [value]=""></option>
+                        <option *ngFor="let arl of ARLs" [value]="arl.id">{{arl.nombre}}</option>
+                    </select>
+                    <app-edit-add-delete 
+                        [action]="'ARL'" 
+                        [id]="formulario.ARL"
+                        [texto]="ARL"
+                        (edit)="editar($event)"
+                        (delete)="eliminar($event)"
+                    />
+                </div>
+                <div class="col-4">
+                    <label class="subtitulo">AFP</label>
+                    <select type="text" class="input" [(ngModel)]="formulario.AFP">
+                        <option [value]=""></option>
+                        <option *ngFor="let afp of AFPs" [value]="afp.id">{{afp.nombre}}</option>
+                    </select>
+                    <app-edit-add-delete 
+                        [action]="'AFP'" 
+                        [id]="formulario.AFP"
+                        [texto]="AFP"
+                        (edit)="editar($event)"
+                        (delete)="eliminar($event)"
+                    />
+                </div>
+            </div>
+            <div class="row mt-20">
+                <div class="col-4">
+                    <label class="subtitulo">Aseguradora</label>
+                    <select type="text" class="input" [(ngModel)]="formulario.ASEGURADORA">
+                        <option [value]=""></option>
+                        <option *ngFor="let aseguradora of aseguradoras;" [value]="aseguradora.id">{{aseguradora.nombre}}</option>
+                    </select>
+                    <app-edit-add-delete 
+                        [action]="'ASE'" 
+                        [id]="formulario.ASEGURADORA"
+                        [texto]="ASEGURADORA"
+                        (edit)="editar($event)"
+                        (delete)="eliminar($event)"
+                    />
+                </div>
+                <div class="col-4">
+                    <label class="subtitulo">Marca</label>
+                    <select type="text" class="input" [(ngModel)]="formulario.MARCA">
+                        <option [value]=""></option>
+                        <option *ngFor="let marca of marcas" [value]="marca.id">{{marca.marca}}</option>
+                    </select>
+                    <app-edit-add-delete 
+                        [action]="'MAR'" 
+                        [id]="formulario.MARCA" 
+                        [texto]="MARCA"
+                        (edit)="editar($event)"
+                        (delete)="eliminar($event)"
+                    />
+                </div>
+            </div>
+            <div class="row mt-40"></div>
+        </div>
+    </div>
+</div>

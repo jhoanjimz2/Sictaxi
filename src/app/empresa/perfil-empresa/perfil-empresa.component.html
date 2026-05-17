@@ -1,0 +1,129 @@
+<form (ngSubmit)="guardar()" [formGroup]="form" autocomplete="off">
+    <div class="contenedor">
+        <div class="row mt-10">
+            <div class="col-6">
+                <label class="titulo">Editar empresa</label>
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col">
+                <div class="card-formulario sombra">
+
+                    <div class="flexible">
+                        <div class="wid-350">
+                            <div>
+                                <input type="file" (change)="addimg($event)" accept="image/png, image/jpeg" #myInput disabled>
+                                <img [src]="img | imagenes | async" class="imgprofile">
+                            </div>
+                            <br>
+                            <button type="button" class="sombra bg-b" (click)="abrirImg()"><img [src]="'assets/subirfoto.svg'">Subir foto</button>
+                        </div>
+                        <div class="w-rest">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="subtitulo">NIT</label>
+                                    <input type="text" class="input" formControlName="nit">
+                                </div>
+                                <div class="col-4">
+                                    <label class="subtitulo">Rázon social</label>
+                                    <input type="text" class="input" formControlName="razonSocial">
+                                </div>
+                                <div class="col-4">
+                                    <label class="subtitulo">Sigla</label>
+                                    <input type="text" class="input" formControlName="sigla">
+                                </div>
+                            </div>
+
+                            <div class="row mt-10">
+                                <div class="col-4">
+                                    <label class="subtitulo">Ciudad de la sede pricipal</label>
+                                    <input type="text" class="input" formControlName="idCiudadPrincipal">
+                                </div>
+                                <div class="col-4">
+                                    <label class="subtitulo">Dirección</label>
+                                    <input type="text" class="input" formControlName="direccion">
+                                </div>
+                                <div class="col-4">
+                                    <label class="subtitulo">Teléfono</label>
+                                    <input type="text" class="input" formControlName="telefono">
+                                </div>
+                            </div>
+
+                            <div class="row mt-10">
+                                <div class="col-4">
+                                    <label class="subtitulo">Celular de la empresa</label>
+                                    <input type="text" class="input" formControlName="celular">
+                                </div>
+                                <div class="col-4">
+                                    <label class="subtitulo">E-mail</label>
+                                    <input type="text" class="input" formControlName="email">
+                                </div>
+                                <div class="col-4">
+                                    <label class="subtitulo">Cédula de representante legal</label>
+                                    <input type="text" class="input" formControlName="cedulaRepresentante">
+                                </div>
+                            </div>
+
+                            <div class="row mt-10">
+                                <div class="col-4">
+                                    <label class="subtitulo">Ciudad de la cédula - Representante</label>
+                                    <input type="text" class="input" formControlName="idCiudadCedulaRepresentante">
+                                </div>
+                                <div class="col-4">
+                                    <label class="subtitulo">Representante legal</label>
+                                    <input type="text" class="input" formControlName="nombreRepresentante">
+                                </div>
+                                <div class="col-4">
+                                    <label class="subtitulo">Dirección del represetante legal</label>
+                                    <input type="text" class="input" formControlName="direccionRepresentante">
+                                </div>
+                            </div>
+
+                            <div class="row mt-10">
+                                <div class="col-4">
+                                    <label class="subtitulo">Teléfono del representante legal</label>
+                                    <input type="text" class="input" formControlName="telefonoRepresentante">
+                                </div>
+                                <div class="col-4">
+                                    <label class="subtitulo">Fecha de acto administrativo de habilitación</label>
+                                    <input
+                                        type="text"
+                                        class="input"
+                                        [placeholder]="'aaaa/mm/dd'"
+                                        [mask]="'9999/99/99'"
+                                        formControlName="fechaHabilitacion"
+                                    >
+                                </div>
+                                <div class="col-4">
+                                    <label class="subtitulo">Número de acto administrativo</label>
+                                    <input type="text" class="input" formControlName="numeroActoAdministrativo">
+                                </div>
+                            </div>
+
+                            <div class="row mt-10">
+                                <div class="col-4">
+                                    <label class="subtitulo">Capacidad vinculada</label>
+                                    <input type="text" class="input" formControlName="capacidadVinculada">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-10">
+                        <div class="col-4"></div>
+                        <div class="col-4 end">
+                        </div>
+                        <div class="col-4 end">
+                            <div class="flexible end">
+                                <button type="submit" class="sombra bg-b"><img [src]="'assets/guardar.svg'">Guardar todo</button>
+                                <div class="separador"></div>
+                                <button type="button" class="sombra bg-r" [routerLink]="'/empresa/buscar-conductores'">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

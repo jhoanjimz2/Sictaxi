@@ -1,0 +1,83 @@
+.vh100 {
+    height: 100vh;
+}
+.pr {
+    position: relative !important;
+}
+.z-0 {
+    z-index: 0;
+}
+.carousel-item {
+    img {
+        width: 100% !important;
+        height: 100vh !important;
+        object-fit: cover !important;
+        transition: all 0.5s ease-in-out;
+    }
+}
+.carousel-indicators {
+    bottom: 75px;
+    button {
+        background-color: #000000 !important;
+        opacity: 1;
+        width: 10px !important;
+        height: 10px !important;
+        border-radius: 50% !important;
+        border: none;
+        transition: all 0.5s ease-in-out;
+    }
+    button.active {
+        background-color: #FFF25C !important;
+        opacity: 1;
+        width: 30px !important;
+        height: 10px !important;
+        border-radius: 5px !important;
+    }
+}
+.innlab {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    line-height: 2;
+    img {
+        width: 120px;
+    }
+    div {
+        margin-top: 5px;
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+        img {
+            width: 30px;
+            cursor: pointer;
+        }
+    }
+}
+.tiendas {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    line-height: 2;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 100px;
+        cursor: pointer;
+        z-index: 99999;
+    }
+    div {
+        display: flex;
+        .w20 {
+            width: 20px;
+        }
+    }
+}

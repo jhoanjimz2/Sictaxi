@@ -1,0 +1,62 @@
+<div class="contenedor">
+    <div class="content">
+      <div class="modal-header">
+        <label class="titulos">
+          {{
+            tipoConsulta === 'placa'
+              ? 'Conductores vinculados a la placa ' + parametro
+              : (asociados.length > 0
+                  ? 'Vehículos vinculados al conductor ' + asociados[0].conductor.nombres + ' ' + asociados[0].conductor.apellidos
+                  : '')
+          }}
+        </label>
+      </div>
+
+      <div class="modal-body">
+        <div *ngFor="let asociado of asociados" class="conductor-item">
+          <input
+            type="checkbox"
+            [id]="'asociado-' + asociado.id"
+            [(ngModel)]="asociado.seleccionado"
+          />
+          <label [for]="'asociado-' + asociado.id" class="conductor-info">
+            <img [src]="asociado.fotoURL || 'assets/no-image.jpg'" alt="Foto"/>
+            <div>
+              <ng-container *ngIf="tipoConsulta === 'placa'; else vehiculoTemplate">
+                <p><strong>{{ asociado.conductor.nombres }} {{ asociado.conductor.apellidos }}</strong></p>
+                <p>Cédula: {{ asociado.conductor.cedula }}</p>
+                <p>Teléfono: {{ asociado.conductor.telefono }}</p>
+                <p>Dirección: {{ asociado.conductor.direccion }}</p>
+              </ng-container>
+
+              <ng-template #vehiculoTemplate>
+                <p><strong>Placa {{ asociado.vehiculo.placa }}</strong></p>
+                <p>Teléfono: {{ asociado.vehiculo.telefonoPropietario }}</p>
+                <p>Cédula: {{ asociado.vehiculo.cedulaPropietario }}</p>
+                <p> Propietario: {{ asociado.vehiculo.nombrePropietario }}</p>
+              </ng-template>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="acciones-seleccion">
+        <button (click)="seleccionarTodo()" class="btn-acciones">Seleccionar todo</button>
+        <button (click)="borrarSeleccion()" class="btn-acciones">Borrar selección</button>
+      </div>
+
+      <div class="row mt-30">
+        <div class="col flex-end">
+          <button class="b-b"
+            (click)="openModalDesvincular()"
+            [disabled]="!idsSeleccionados.length"
+          >
+            Desvincular {{idsSeleccionados.length}}
+          </button>
+          <div class="w-20"></div>
+          <button class="button-opc-c" mat-dialog-close type="button">Cancelar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>

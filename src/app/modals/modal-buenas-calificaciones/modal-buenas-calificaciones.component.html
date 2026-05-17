@@ -1,0 +1,31 @@
+<div class="contenedor">
+    <div class="row">
+        <div class="col-6 d-flex">
+            <div class="item item-select">
+                <img [src]="'assets/tramitadas.svg'">
+                <label>Buenas calificaciones</label>
+            </div>
+        </div>
+        <div class="col-6 d-flex flex-end">
+            <button class="ml-10" mat-dialog-close>Cancelar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col colitems">
+            <div class="card-quejas" *ngFor="let buen of buenasCalificaciones | orderDate">
+
+                <div class="comentarios" *ngFor="let comentario of buen.comentarios"><div class="check"></div><label>{{comentario.comentario}}</label></div>
+                <div class="comentarios" *ngIf="!buen.comentarios.length"><div class="check"></div><label>Buena Calificación</label></div>
+                <div class="info-usuario" *ngIf="user.rol == 'Secretaria'">
+                    <label>Email: {{buen.email}}</label>
+                    <label>Nombre: {{buen.nombre}}</label>
+                    <label>Telefono: {{buen.telefono}}</label>
+                    <label>{{buen.fechaRegistro| date: 'dd/MM/YYYY'}}</label>
+                </div>
+
+            </div>
+
+            <div class="h-40"></div>
+        </div>
+    </div>
+</div>

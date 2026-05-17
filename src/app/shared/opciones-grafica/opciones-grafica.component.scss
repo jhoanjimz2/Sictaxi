@@ -1,0 +1,50 @@
+.row {
+    padding-top: 25px;
+}
+.cent {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+    position: relative;
+    cursor: pointer;
+    .color-cuadro {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 5px;
+        background: white;
+    }
+}
+.coment {
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+}
+.hover {
+    width: 180px;
+    background: grey;
+    position: absolute;
+    bottom: 110%;
+    left: 17px;
+    z-index: 999;
+    transition: all .5s ease-in-out;
+    padding: 2.5px;
+    border-radius: 3px;
+    i {
+        position: absolute;
+        left: 0px;
+        bottom: -16px;
+        color: grey;
+    }
+    label {
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+    }
+}

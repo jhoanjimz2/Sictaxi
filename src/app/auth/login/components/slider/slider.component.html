@@ -1,0 +1,47 @@
+<div id="carrusel" class="carousel slide pr" data-bs-ride="true" data-mdb-interval="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carrusel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carrusel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carrusel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img [src]="'assets/slide1.png'" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img [src]="'assets/slide2.png'" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img [src]="'assets/slide3.png'" class="d-block w-100">
+      </div>
+    </div>
+    <button class="carousel-control-prev z-0" type="button" data-bs-target="#carrusel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next z-0" type="button" data-bs-target="#carrusel" data-bs-slide="next" id="bnext">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+
+    <div class="innlab">
+        <img [src]="'assets/sidebar/innlab-logo-negro.png'">
+        <div>
+            <img [src]="'assets/twitter.svg'" (click)="twitter()">
+            <img [src]="'assets/facebook.svg'" (click)="facebook()">
+            <img [src]="'assets/instagram.svg'" (click)="instagram()">
+        </div>
+    </div>
+
+
+    <div class="tiendas">
+        Descarga nuestra app
+        <div>
+            <img src="assets/appstore.svg" (click)="appstore()">
+            <div class="w20"></div>
+            <img src="assets/googleplay.svg" (click)="playstore()">
+        </div>
+    </div>
+
+</div>

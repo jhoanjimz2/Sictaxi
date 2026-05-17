@@ -1,0 +1,57 @@
+<aside class="w-[253px] h-screen fixed top-0 left-0 bg-[#8DD7F7] px-[20px] flex flex-col justify-center items-center"
+ [ngClass]="{ 'bg-white border-l-4 border-white': (user || {}).rol == 'Secretaria' }">
+
+
+
+  <header class="group w-[100%] h-[170px] flex flex-col justify-center items-center overflow-hidden p-[20px] relative">
+    <div>
+      <img class="w-[50px] h-[50px] rounded-[25px] bg-white bg-cover shadow-[0_0_7px_rgba(0,0,0,0.09)] object-cover transition-all duration-[500ms] group-hover:opacity-40 group-hover:scale-[0.8]" [src]="user.fotoUrl | imagenes | async">
+    </div>
+
+    <h4 class="text-[#293642] font-normal mt-[15px] text-[16px] text-center transition-all duration-[500ms] group-hover:opacity-0 group-hover:scale-[0.3]">
+      {{ user.nombres + ' ' + user.apellidos }}
+    </h4>
+
+    <svg class="w-[30px] h-[30px] absolute bottom-[20px] transition-all duration-[500ms] z-[3] fill-[#293642] group-hover:rotate-[180deg] group-hover:translate-y-[-20px] group-hover:scale-0" viewBox="0 0 40 40">
+      <path d="M20,23.7c-0.7,0-1.3-0.3-1.8-0.7l-4.6-4.6c-0.2-0.2-0.2-0.5,0-0.7s0.5-0.2,0.7,0l4.6,4.6 c0.6,0.6,1.5,0.6,2.1,0l4.6-4.6c0.2-0.2,0.5-0.2,0.7,0s0.2,0.5,0,0.7l-4.6,4.6C21.3,23.4,20.7,23.7,20,23.7z"></path>
+    </svg>
+
+    <button (click)="logout()"
+      class="opacity-0 cursor-pointer translate-y-[80px] bg-transparent border-none p-[10px] text-[#293642] text-[16px]
+      relative z-[4] transition-all duration-[500ms] ease-[cubic-bezier(0,0,0.09,0.87)]
+      group-hover:!opacity-100 group-hover:translate-y-0">
+      Cerrar sesión
+    </button>
+  </header>
+
+
+
+
+  <div class="w-full">
+    <a
+      [ngClass]="{'bg-white border-l-4 border-white': (user || {}).rol === 'Secretaria'}"
+      class="border-l-[3px] border-[#8DD7F7] relative flex justify-start items-center p-[3.5px] px-[10px] pl-[20px] mt-[4px] no-underline transition-all duration-[200ms] ease-in-out rounded-[10px] bg-[#8DD7F7] w-[100%] hover:-translate-x-[3px] hover:shadow-[0_4px_17px_rgba(0,0,0,0.15)]"
+      *ngFor="let item of items"
+      [routerLink]="item.route"
+      [routerLinkActive]="((user || {}).rol == 'Secretaria' ) ? '!bg-[#FFF25C]' : '!bg-white'"
+    >
+      <img class="w-[18px] mr-[20px]" [src]="'assets/sidebar/'+item.icon">&nbsp;
+      <span class="text-[14px] font-medium text-black">{{item.name}}</span>
+      <div  class="w-[30px] h-[30px] text-[14px] font-bold text-white absolute right-[5px] top-[calc(50%-15px)] bg-red-500 z-[99] rounded-full flex justify-center items-center"
+            *ngIf="item.name == 'Documentos vencidos'">
+        {{ totalDocumentosVencidos > 99 ? '+99' : totalDocumentosVencidos }}
+      </div>
+    </a>
+  </div>
+
+  <div class="flex flex-col justify-center items-center">
+    <img [src]="'assets/sidebar/alcaldia-logo.png'" class="mt-[40px] w-[80%]">
+    <img [src]="'assets/sidebar/innlab-logo.png'" class="mt-[10px] mb-[20px] w-[35%]" *ngIf="(user || {}).rol == 'Secretaria'">
+    <img [src]="'assets/sidebar/innlab-logo-negro.png'" class="mt-[10px] mb-[20px] w-[35%]" *ngIf="(user || {}).rol != 'Secretaria'">
+    <!-- <button *ngIf="!suscription" [routerLink]="'/suscripciones'" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-xl transform transition-transform transition-colors duration-1000 ease-in-out hover:scale-110 hover:shadow-2xl hover:from-purple-600 hover:to-blue-500">
+      Actualizar plan
+    </button> -->
+  </div>
+
+
+</aside>

@@ -1,0 +1,64 @@
+<div *ngIf="!isLoading && mostrarFormulario && !nuevoNumeroVisible && !registrarNumero; else ValidarNuevamente" class="contenedor">
+  <div class="modal-content-validacion">
+  <div class="modal-header">
+    <h2 class="inline-element">Verificación Telefónica</h2>
+  </div>
+    <p class="inline-text-validacion">Se ha enviado un código de confirmación al número de teléfono 1234567890 del taxista</p>
+
+  <div class="codigo-inputs">
+    <input type="text" maxlength="1" [(ngModel)]="codigo[0]" (input)="onInputChange($event, 0)" required>
+    <input type="text" maxlength="1" [(ngModel)]="codigo[1]" (input)="onInputChange($event, 1)" required>
+    <input type="text" maxlength="1" [(ngModel)]="codigo[2]" (input)="onInputChange($event, 2)" required>
+    <input type="text" maxlength="1" [(ngModel)]="codigo[3]" (input)="onInputChange($event, 3)" required>
+    <input type="text" maxlength="1" [(ngModel)]="codigo[4]" (input)="onInputChange($event, 4)" required>
+    <input type="text" maxlength="1" [(ngModel)]="codigo[5]" (input)="onInputChange($event, 5)" required>
+  </div>
+  
+  <div class="modal-actions">
+    <button class="b-b" (click)="validarSMS()" [disabled]="!isCodigoValido()">Verificar</button> 
+    <div class="w-20"></div> 
+    <button class="b-w" mat-dialog-close type="button" (click)="cancelar()">Cancelar</button>
+  </div>
+    <a class="link" (click)="linkChanges()" >¿Ya no usas este número de teléfono?</a>
+  </div>
+</div>
+
+<div *ngIf="!isLoading && nuevoNumeroVisible && !mostrarFormulario && !registrarNumero">
+  <div class="contenedor">
+    <div class="modal-header">
+      <h2 class="inline-element">Verificación Telefónica</h2>
+    </div>
+    <div class="content-number">
+      <input type="text" maxlength="10" class="new-number" placeholder="Ingresar nuevo número de teléfono a registrar" [(ngModel)]="nuevoNumero" (input)="onNuevoNumeroChange($event)" required>
+    </div>
+    <div class="modal-actions">
+      <button class="b-b" (click)="enviarSMSConNuevoNumero()" [disabled]="!isNuevoNumeroValido()">Verificar</button> 
+      <div class="w-20"></div> 
+      <button class="b-w" mat-dialog-close type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #ValidarNuevamente>
+  <div *ngIf="!isLoading && !mostrarFormulario && !nuevoNumeroVisible && !registrarNumero" class="contenedor">
+  <div class="content-validar-nuevamente">
+    <h2 class="inline-text-validar-nuevamente">Ya verificaste el número de teléfono del taxista ¿Verificar nuevamente o continuar con la refrendación?</h2>
+    <div class="modal-actions">
+      <button class="b-b" (click)="enviarSMSConTelefonoExistente()">Verificar</button> 
+      <div class="w-20"></div> 
+      <button class="b-w" mat-dialog-close type="button" (click)="refrendar()">Refrendar</button>
+    </div>
+  </div>
+</div>
+</ng-template>
+
+<div *ngIf="!isLoading && registrarNumero" class="contenedor">
+  <div class="content-registrar-numero">
+    <h2 class="inline-text">¿Registrar nuevo número de teléfono?</h2>
+    <div class="modal-actions">
+      <button class="b-b" (click)=" registrarNuevoNumero()">Registrar</button> 
+      <div class="w-20"></div> 
+      <button class="b-w" mat-dialog-close type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+</div>

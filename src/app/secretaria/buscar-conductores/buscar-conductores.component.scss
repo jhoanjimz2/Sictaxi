@@ -1,0 +1,80 @@
+.contenedor {
+    padding: 15px 20px;
+    height: 100%;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+.titulo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #000;
+    margin-left: 20px;
+}
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.card-taxista {
+    width: 100%;
+    background-color: white;
+    border-radius: 25px;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+}
+.img {
+    width: 80px;
+    padding-right: 10px;
+    img {
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        object-fit: cover;
+        cursor: pointer; 
+    }
+}
+.textos {
+    width: calc(100% - 80px);
+    padding: 0px;
+}
+.linea-uno {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+.linea-dos {
+    display: flex;
+    width: 100%;
+}
+.w1 {
+    width: calc(40% - 10px);
+}
+.w2 {
+    width: calc(30% - 10px);
+}
+.w3 {
+    width: calc(30% - 50px);
+}
+.textos-container {
+    line-height: 1;
+    label {
+        font-size: 12px;
+        font-weight: bold;
+        color: #000;
+        span {
+            color: #00000070;
+        }
+    }
+    img {
+        width: 40px;
+    }
+}
+.separador {
+    width: 10px;
+}
